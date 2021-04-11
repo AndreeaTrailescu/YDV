@@ -1,4 +1,4 @@
-package org.example;
+package org.openjfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,16 +8,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root=FXMLLoader.load(App.class.getResource("hello" + ".fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        stage.setTitle("Hello World");
+        Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("hello.fxml"));
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
