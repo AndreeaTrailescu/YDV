@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.LoginController">
+    <ImageView fitHeight="111.0" fitWidth="179.0" pickOnBounds="true">
+        <image>
+            <Image url="@dream_vacation_photo.jpg" />
+        </image>
+    </ImageView>
+    <ImageView fitHeight="287.0" fitWidth="179.0" layoutY="113.0" pickOnBounds="true">
+        <image>
+            <Image url="@img1.jpg" />
+        </image>
+    </ImageView>
+    <Label layoutX="303.0" layoutY="36.0" prefHeight="20.0" prefWidth="82.0" text="Username" textAlignment="CENTER" textFill="#0c1649">
+        <font>
+            <Font name="DejaVu Serif Bold" size="14.0" />
+        </font>
+    </Label>
+    <TextField fx:id="usernameField" layoutX="223.0" layoutY="56.0" prefHeight="26.0" prefWidth="241.0" />
+    <Label layoutX="308.0" layoutY="101.0" prefHeight="20.0" prefWidth="82.0" text="Password" textFill="#0c1649">
+        <font>
+            <Font name="DejaVu Serif Bold" size="14.0" />
+        </font>
+    </Label>
+    <PasswordField fx:id="passwordField" layoutX="223.0" layoutY="121.0" prefHeight="26.0" prefWidth="242.0" />
+    <Button fx:id="loginButton" layoutX="222.0" layoutY="243.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="26.0" prefWidth="242.0" text="Login" textAlignment="CENTER" textFill="#0c1649">
+        <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+        </font>
+    </Button>
+    <ChoiceBox fx:id="role" layoutX="269.0" layoutY="187.0" prefWidth="150.0">
+    </ChoiceBox>
+    <Label layoutX="326.0" layoutY="162.0" prefHeight="18.0" prefWidth="39.0" text="Role" textAlignment="CENTER" textFill="#06094f">
+        <font>
+            <Font name="DejaVu Serif Bold" size="14.0" />
+        </font>
+    </Label>
+    <Text fx:id="message" fill="#e20909" layoutX="234.0" layoutY="326.0" wrappingWidth="217.39999999999998" />
+</AnchorPane>
