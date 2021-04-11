@@ -2,7 +2,7 @@ package org.openjfx.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.openjfx.exception.PasswordIncorrectException;
+import org.openjfx.exceptions.PasswordIncorrectException;
 import org.openjfx.model.User;
 
 import java.nio.charset.StandardCharsets;
