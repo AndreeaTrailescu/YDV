@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RegisterController2">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RegisterControllerAgent">
     <children>
         <TextField fx:id="name" layoutX="96.0" layoutY="65.0" mouseTransparent="true" prefHeight="26.0" prefWidth="251.0" />
         <Label layoutX="35.0" layoutY="68.0" prefHeight="18.0" prefWidth="82.0" text="Name" textFill="#0c1649">
@@ -30,6 +30,6 @@
             </font>
         </Label>
         <TextField fx:id="nameOfAgency" layoutX="175.0" layoutY="306.0" prefHeight="26.0" prefWidth="182.0" />
-        <Button fx:id="saveButton" layoutX="298.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleRegister2" prefHeight="26.0" prefWidth="52.0" text="Save" />
+        <Button fx:id="saveButton" layoutX="298.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleRegisterAgent" prefHeight="26.0" prefWidth="52.0" text="Save" />
     </children>
 </AnchorPane>

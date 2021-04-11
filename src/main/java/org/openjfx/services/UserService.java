@@ -31,13 +31,15 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role, name, eMail, phoneNumber, nameOfAgency));
     }
 
-    public static void checkUserDoesAlreadyExist(String username, String password) throws PasswordIncorrectException{
+    public static boolean checkUserDoesAlreadyExist(String username, String password) throws PasswordIncorrectException{
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())) {
                 if(!Objects.equals(user.getPassword(), encodePassword(username,password)))
                     throw new PasswordIncorrectException(password);
+                else return true;
             }
         }
+        return false;
     }
 
     private static String encodePassword(String salt, String password) {

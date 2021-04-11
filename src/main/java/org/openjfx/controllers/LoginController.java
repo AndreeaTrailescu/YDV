@@ -36,33 +36,52 @@ public class LoginController {
     @FXML
     public void handleRegisterAction() {
         try {
-            UserService.checkUserDoesAlreadyExist(usernameField.getText(), passwordField.getText());
+            Stage stage = new Stage();
+
+            boolean test = UserService.checkUserDoesAlreadyExist(usernameField.getText(), passwordField.getText());
             Stage primaryStage = (Stage) loginButton.getScene().getWindow();
             primaryStage.close();
-            Stage stage = new Stage();
-            if (((String) role.getValue()).equals("Client")) {
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerClient.fxml"));
-                Parent root = (Parent) loader.load();
-                stage.setScene(new Scene(root));
-                stage.show();
-                RegisterController1 reg = loader.getController();
-                reg.setUsernameField(usernameField);
-                reg.setPasswordField(passwordField);
-                reg.setRole(role);
-            } else if (((String) role.getValue()).equals("Travel Agent")) {
-                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerAgent.fxml"));
-                Parent root = (Parent) loader.load();
-                stage.setScene(new Scene(root));
-                stage.show();
-                RegisterController2 reg = loader.getController();
-                reg.setUsernameField(usernameField);
-                reg.setPasswordField(passwordField);
-                reg.setRole(role);
+            if(test) {
+                if(((String) role.getValue()).equals("Client")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homePage.fxml"));
+                    Parent root = (Parent) loader.load();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } else if (((String) role.getValue()).equals("Travel Agent")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
+                    Parent root = (Parent) loader.load();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                }
+            }
+
+            if(!test) {
+                if (((String) role.getValue()).equals("Client")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerClient.fxml"));
+                    Parent root = (Parent) loader.load();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    RegisterControllerClient reg = loader.getController();
+                    reg.setUsernameField(usernameField);
+                    reg.setPasswordField(passwordField);
+                    reg.setRole(role);
+                } else if (((String) role.getValue()).equals("Travel Agent")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerAgent.fxml"));
+                    Parent root = (Parent) loader.load();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    RegisterControllerAgent reg = loader.getController();
+                    reg.setUsernameField(usernameField);
+                    reg.setPasswordField(passwordField);
+                    reg.setRole(role);
+                }
             }
         } catch (PasswordIncorrectException e) {
             message.setText(e.getMessage());
         } catch (IOException ee) {
-            System.out.println("i m done");
+            System.out.println("eroare");
         }
     }
+
+
 }
