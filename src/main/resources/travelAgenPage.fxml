@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.AgencyPageController">
+    <children>
+        <Label layoutX="91.0" layoutY="29.0" text="My Agency Page">
+            <font>
+                <Font name="DejaVu Sans Mono Bold" size="14.0" />
+            </font>
+        </Label>
+        <Button layoutX="130.0" layoutY="69.0" mnemonicParsing="false" text="Add" />
+        <Button layoutX="131.0" layoutY="113.0" mnemonicParsing="false" text="Edit" />
+        <Button layoutX="124.0" layoutY="161.0" mnemonicParsing="false" text="Delete" />
+        <Button layoutX="101.0" layoutY="208.0" mnemonicParsing="false" text="Rezervation List" />
+        <Button fx:id="logoutButton" layoutX="124.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+    </children>
+</AnchorPane>

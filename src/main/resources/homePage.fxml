@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.HomePageController">
+    <children>
+        <Label layoutX="110.0" layoutY="29.0" text="Home Page">
+            <font>
+                <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+            </font>
+        </Label>
+        <Button layoutX="90.0" layoutY="150.0" mnemonicParsing="false" text="Booking History List" />
+        <Button layoutX="91.0" layoutY="77.0" mnemonicParsing="false" text="Travel Agencies List" />
+        <Button fx:id="logoutButton" layoutX="125.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+    </children>
+</AnchorPane>
