@@ -56,6 +56,10 @@ public class User {
         this.role = role;
     }
 
+    public String getNameOfAgency() {
+        return nameOfAgency;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
