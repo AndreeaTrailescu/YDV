@@ -71,20 +71,13 @@
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
             </font>
         </Label>
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
-            <GridPane.margin>
-                <Insets />
-            </GridPane.margin>
-        </TextField>
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="2">
-            <GridPane.margin>
-                <Insets />
-            </GridPane.margin></TextField>
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="nameOfOffer"/>
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="destination"/>
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="hotelName"/>
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="meals" />
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="nights" />
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="noOfClients"/>
+        <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="price" />
     </children>
    <padding>
       <Insets bottom="10.0" top="10.0" />

@@ -52,6 +52,8 @@ public class LoginController {
                     Parent root = (Parent) loader.load();
                     stage.setScene(new Scene(root));
                     stage.show();
+                    AgencyPageController agencyController = loader.getController();
+                    agencyController.setUsername(usernameField.getText());
                 }
             }
 

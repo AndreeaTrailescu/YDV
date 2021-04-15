@@ -7,11 +7,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.dizitart.no2.objects.ObjectRepository;
+import org.openjfx.model.User;
+import org.openjfx.services.OfferService;
+import org.openjfx.services.UserService;
 
 import java.io.IOException;
 
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
+
 public class AddOfferController {
-    private String nameOfAgency;
+    private static String username;
+    private final ObjectRepository<User> REPOSITORY =UserService.getUserRepository();
 
     @FXML
     private Button saveButton;
@@ -43,6 +50,9 @@ public class AddOfferController {
     @FXML
     public void handleSaveOffer() throws Exception{
         try {
+            User loggedInUser=REPOSITORY.find(eq("username",username)).firstOrDefault();
+            String nameOfAgency=loggedInUser.getNameOfAgency();
+            OfferService.addOffer(nameOfAgency,nameOfOffer.getText(),destination.getText(),hotelName.getText(),meals.getText(),nights.getText(),noOfClients.getText(),price.getText());
             Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("addOfferPage.fxml"));
             Stage stage = (Stage) (saveButton.getScene().getWindow());
             stage.setScene(new Scene(root));
@@ -51,6 +61,8 @@ public class AddOfferController {
             System.out.println("Error");
         }
     }
+
+    @FXML
     public void handleClose() throws Exception{
         try {
             Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
@@ -72,5 +84,8 @@ public class AddOfferController {
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
