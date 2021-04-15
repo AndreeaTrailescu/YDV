@@ -36,10 +36,13 @@ public class RegisterControllerAgent {
     public void handleRegisterAgent() throws Exception{
         try {
             UserService.addUser(usernameField, passwordField, role, name.getText(), eMail.getText(), phoneNumber.getText(), nameOfAgency.getText());
-            Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
+            Parent root = loader.load();
             Stage stage = (Stage) (saveButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
+            AgencyPageController agencyController = loader.getController();
+            agencyController.setUsername(usernameField);
         } catch (IOException e) {
             System.out.println("eroare");
         }
