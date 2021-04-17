@@ -19,6 +19,11 @@
             <version>15.0.1</version>
         </dependency>
         <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>9.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.dizitart</groupId>
             <artifactId>nitrite</artifactId>
             <version>3.4.3</version>
@@ -34,6 +39,9 @@
                     <release>15</release>
                     <source>15</source>
                     <target>15</target>
+                    <compilerArgs>
+                        <arg>--add-exports=javafx.base/com.sun.javafx.event=ALL-UNNAMED</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>

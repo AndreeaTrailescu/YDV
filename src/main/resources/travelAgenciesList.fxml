@@ -3,25 +3,54 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.AgenciesListController">
   <columnConstraints>
     <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="342.8" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="35.2" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="32.800000000000004" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="51.8" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="23.19999999999999" />
+    <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="177.60000000000002" />
       <RowConstraints maxHeight="191.4" minHeight="10.0" prefHeight="56.80000000000001" />
   </rowConstraints>
    <children>
-      <Button  fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.rowIndex="1">
+       <Button fx:id="offersButton" mnemonicParsing="false" onAction="#handleOffers" text="See offers" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+           <GridPane.margin>
+               <Insets left="10.0" />
+           </GridPane.margin>
+       </Button>
+      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets left="20.0" />
+            <Insets />
          </GridPane.margin></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
          <GridPane.margin>
-            <Insets right="20.0" />
+            <Insets right="10.0" />
          </GridPane.margin></Button>
-      <ListView prefHeight="200.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <ListView fx:id="agenciesList" prefHeight="200.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin></ListView>
+      <Label text="Travel agencies" GridPane.halignment="CENTER">
+          <font>
+              <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+          </font>
+      </Label>
+      <TextField fx:id="agencyName" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <Label text="If you know the name of the agency, search it here:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+          <font>
+              <Font name="DejaVu Sans Condensed Bold" size="10.0" />
+          </font>
+      </Label>
+      <Label text="You can find an agency here:" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+          <font>
+              <Font name="DejaVu Sans Condensed Bold" size="10.0" />
+          </font>
+      </Label>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
