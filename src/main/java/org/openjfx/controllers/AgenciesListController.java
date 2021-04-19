@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import org.controlsfx.control.textfield.TextFields;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
@@ -63,7 +62,7 @@ public class AgenciesListController implements Initializable {
 
     @FXML
     public void handleOffers(){
-        if(agencyName.getText()!="")
+        if(agencyName.getText().equals("")==false)
             selectedAgency=agencyName.getText();
         else
             selectedAgency=(String)(agenciesList.getSelectionModel().getSelectedItem());
