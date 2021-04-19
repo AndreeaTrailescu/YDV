@@ -5,38 +5,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.openjfx.services.UserService;
 
 import java.io.IOException;
 
-import java.io.IOException;
-
-public class AgencyPageController {
-    private String username;
+public class OffersPageController {
+    private static String selectedAgency;
 
     @FXML
-    private Button logoutButton;
+    private Label nameOfAgencyLabel;
     @FXML
-    private Button addButton;
-    @FXML
-    private Button editButton;
-    @FXML
-    private Button deleteButton;
+    private Button agencyListButton;
     @FXML
     private Button bookListButton;
+    @FXML
+    private Button logoutButton;
+
+    public static void setSelectedAgency(String selectedAgency) {
+        OffersPageController.selectedAgency = selectedAgency;
+    }
 
     @FXML
-    public void handleAdd() throws Exception{
+    public void handleAgencyList() {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) (addButton.getScene().getWindow());
+            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            Stage stage = (Stage) (agencyListButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
-            AddOfferController addController = loader.getController();
-            addController.setUsername(username);
         } catch (IOException e) {
             System.out.println("Error");
         }
@@ -44,7 +40,7 @@ public class AgencyPageController {
 
     @FXML
     public void handleLogout() {
-        try {
+        try{
             Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Stage stage = (Stage) (logoutButton.getScene().getWindow());
             stage.setScene(new Scene(root));
@@ -52,9 +48,5 @@ public class AgencyPageController {
         } catch (IOException e) {
             System.out.println("Error");
         }
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }

@@ -11,8 +11,8 @@
                 <Font name="DejaVu Sans Condensed Bold" size="14.0" />
             </font>
         </Label>
+        <Button fx:id="agencyListButton" layoutX="91.0" layoutY="77.0" mnemonicParsing="false"  onAction="#handleAgenciesList"  text="Travel Agencies List" />
         <Button layoutX="90.0" layoutY="150.0" mnemonicParsing="false" text="Booking History List" />
-        <Button layoutX="91.0" layoutY="77.0" mnemonicParsing="false" text="Travel Agencies List" />
         <Button fx:id="logoutButton" layoutX="125.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
     </children>
 </AnchorPane>
