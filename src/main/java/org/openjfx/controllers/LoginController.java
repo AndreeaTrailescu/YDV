@@ -10,12 +10,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.exceptions.PasswordIncorrectException;
+import org.openjfx.model.User;
 import org.openjfx.services.UserService;
 
 import java.io.IOException;
 
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
+
 public class LoginController {
+    private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
 
     @FXML
     private TextField usernameField;
@@ -54,6 +59,10 @@ public class LoginController {
                     stage.show();
                     AgencyPageController agencyController = loader.getController();
                     agencyController.setUsername(usernameField.getText());
+                    User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
+                    String nameOfAgency = loggedInUser.getNameOfAgency();
+                    System.out.println("login"+ nameOfAgency);
+                    agencyController.setNameOfAgency(nameOfAgency);
                 }
             }
 

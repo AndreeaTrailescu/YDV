@@ -12,7 +12,7 @@
             </font>
         </Label>
         <Button fx:id="addButton" layoutX="130.0" layoutY="69.0" mnemonicParsing="false"  onAction="#handleAdd" text="Add"/>
-        <Button layoutX="131.0" layoutY="113.0" mnemonicParsing="false" text="Edit" />
+        <Button fx:id="editButton" layoutX="131.0" layoutY="113.0" mnemonicParsing="false" text="Edit" />
         <Button layoutX="124.0" layoutY="161.0" mnemonicParsing="false" text="Delete" />
         <Button layoutX="101.0" layoutY="208.0" mnemonicParsing="false" text="Rezervation List" />
         <Button fx:id="logoutButton" layoutX="124.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
