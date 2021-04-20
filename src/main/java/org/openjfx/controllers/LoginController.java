@@ -61,7 +61,6 @@ public class LoginController {
                     agencyController.setUsername(usernameField.getText());
                     User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
                     String nameOfAgency = loggedInUser.getNameOfAgency();
-                    System.out.println("login"+ nameOfAgency);
                     agencyController.setNameOfAgency(nameOfAgency);
                 }
             }

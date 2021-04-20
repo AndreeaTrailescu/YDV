@@ -52,7 +52,6 @@ public class DialogEditController {
         okClicked = true;
         offer.setId(id);
         REPOSITORY.update(offer);
-        System.out.println("dialog " + username + " " + nameOfAgency);
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("editOfferPage.fxml"));
@@ -67,7 +66,6 @@ public class DialogEditController {
 
     @FXML
     public void handleClose() throws IOException {
-        System.out.println(username + "nume agentie " + nameOfAgency);
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("editOfferPage.fxml"));

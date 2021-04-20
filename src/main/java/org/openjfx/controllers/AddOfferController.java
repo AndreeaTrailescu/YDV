@@ -63,7 +63,6 @@ public class AddOfferController {
         try {
             User loggedInUser=REPOSITORY.find(eq("username",username)).firstOrDefault();
             nameOfAgency=loggedInUser.getNameOfAgency();
-            System.out.println("add offer save " + nameOfAgency);
             String id = NitriteId.newId().toString();
             OfferService.addOffer(id,nameOfAgency,nameOfOffer.getText(),destination.getText(),hotelName.getText(),meals.getText(),nights.getText(),noOfClients.getText(),price.getText());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));
@@ -89,7 +88,6 @@ public class AddOfferController {
             AgencyPageController controller = loader.getController();
             controller.setUsername(username);
             controller.setNameOfAgency(nameOfAgency);
-            System.out.println("add offer close " + nameOfAgency);
         } catch (IOException e) {
             System.out.println("Error");
         }
@@ -127,7 +125,6 @@ public class AddOfferController {
         controller.setUsername(username);
         controller.setNameOfAgency(nameOfAgency);
         controller.setOffers(offers);
-        System.out.println("add page:" + username + " nume agentie " + nameOfAgency);
         Stage primaryStage = (Stage) editButton.getScene().getWindow();
         primaryStage.close();
     }

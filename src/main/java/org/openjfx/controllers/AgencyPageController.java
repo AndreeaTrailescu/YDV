@@ -59,7 +59,6 @@ public class AgencyPageController {
             AddOfferController addController = loader.getController();
             addController.setUsername(username);
             addController.setNameOfAgency(nameOfAgency);
-            System.out.println(username + " masa " + nameOfAgency);
             addController.setOffers(offers);
         } catch (IOException e) {
             System.out.println("Error");
@@ -98,11 +97,10 @@ public class AgencyPageController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.showAndWait();
-            System.out.println("agency page:" + username + " nume agentie" + nameOfAgency);
             Stage primaryStage = (Stage) editButton.getScene().getWindow();
             primaryStage.close();
         } catch (Exception e) {
-            System.out.println("eroareee");
+            System.out.println("eroare");
         }
     }
 

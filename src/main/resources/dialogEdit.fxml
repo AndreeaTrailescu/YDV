@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" cache="true" prefHeight="395.0" prefWidth="550.0" stylesheets="@view/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DialogEditController">
+<GridPane alignment="CENTER" cache="true" prefHeight="395.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DialogEditController">
     <columnConstraints>
         <ColumnConstraints minWidth="0.0" />
         <ColumnConstraints minWidth="0.0" />

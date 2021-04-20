@@ -54,7 +54,6 @@ public class EditOfferController {
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
-            System.out.println(username + " initialize edit nume agentie" + nameOfAgency);
 
             offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
             offerTable.setItems(offers);
@@ -142,8 +141,6 @@ public class EditOfferController {
             addController.setOffers(offers);
             Stage addStage = (Stage) addButton.getScene().getWindow();
             addStage.close();
-
-            System.out.println("edit page add : "+username);
         } catch (IOException e) {
             System.out.println("Error");
         }
@@ -164,7 +161,7 @@ public class EditOfferController {
 
             return controller.isOkClicked();
         } catch (Exception e) {
-            System.out.println("eroareeeeeeeee");
+            System.out.println("eroare");
             return false;
         }
     }
