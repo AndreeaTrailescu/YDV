@@ -12,9 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Offer;
-import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 
@@ -24,7 +22,6 @@ public class EditOfferController {
     private Stage primaryStage = AgencyPageController.getStage();
     private Stage secondStage = DialogEditController.getSecondStage();
     private Stage thirdStage = AddOfferController.getStage();
-    private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
     private String id,username,nameOfAgency;
 
     @FXML

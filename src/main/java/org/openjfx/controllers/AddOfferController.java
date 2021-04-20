@@ -69,7 +69,6 @@ public class AddOfferController {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) (saveButton.getScene().getWindow());
-            System.out.println("save offer in add page " + offers.get(0).getNameOfOffer());
             AddOfferController controller = loader.getController();
             controller.setOffers(offers);
             stage.setScene(new Scene(root));
