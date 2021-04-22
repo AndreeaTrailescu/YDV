@@ -43,6 +43,7 @@ public class RegisterControllerAgent {
             stage.show();
             AgencyPageController agencyController = loader.getController();
             agencyController.setUsername(usernameField);
+            agencyController.setNameOfAgency(nameOfAgency.getText());
         } catch (IOException e) {
             System.out.println("eroare");
         }

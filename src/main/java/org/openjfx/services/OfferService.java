@@ -18,7 +18,11 @@ public class OfferService {
         offerRepository = database.getRepository(Offer.class);
     }
 
-    public static void addOffer(String nameOfAgency, String nameOfOffer, String destination, String hotelName, String meals, String nights, String noOfClients, String price) {
-        offerRepository.insert(new Offer(nameOfAgency,nameOfOffer,destination,hotelName,meals,nights,noOfClients,price));
+    public static void addOffer(String id, String nameOfAgency, String nameOfOffer, String destination, String hotelName, String meals, String nights, String noOfClients, String price) {
+        offerRepository.insert(new Offer(id, nameOfAgency,nameOfOffer,destination,hotelName,meals,nights,noOfClients,price));
+    }
+
+    public static ObjectRepository<Offer> getOfferRepository() {
+        return offerRepository;
     }
 }
