@@ -1,11 +1,16 @@
 package org.openjfx.controllers;
 
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
@@ -15,6 +20,7 @@ import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static org.dizitart.no2.FindOptions.sort;
@@ -29,6 +35,12 @@ public class OffersPageController implements Initializable {
     private Button bookListButton;
     @FXML
     private Button logoutButton;
+    @FXML
+    private ListView offersList;
+    @FXML
+    private Text agencyName;
+    @FXML
+    private Text noOfferExists;
 
     public static void setSelectedAgency(String selectedAgency) {
         OffersPageController.selectedAgency = selectedAgency;
@@ -38,10 +50,20 @@ public class OffersPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
         Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency",selectedAgency),sort("nameOfOffer", SortOrder.Ascending));
-        System.out.println(selectedAgency);
-        offers.toList();
+        ArrayList<String> listOfOffers = new ArrayList<String>();
         for(Offer offer : offers){
-            System.out.println(offer.getNameOfOffer());
+            listOfOffers.add(offer.getNameOfOffer());
+        }
+        ObservableList<String> observableOffers = FXCollections.observableArrayList(listOfOffers);
+        agencyName.setText(selectedAgency);
+        int ROW_HEIGHT=24;
+        if(listOfOffers.isEmpty()){
+            offersList.setOpacity(0);
+            noOfferExists.setText("No offer has been added yet.");
+        }
+        else{
+            offersList.maxHeightProperty().bind(Bindings.size(observableOffers).multiply(ROW_HEIGHT));
+            offersList.setItems(observableOffers);
         }
     }
 
