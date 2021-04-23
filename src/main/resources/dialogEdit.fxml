@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" cache="true" prefHeight="395.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DialogEditController">
+<GridPane alignment="CENTER" cache="true" prefHeight="386.0" prefWidth="453.0" style="-fx-background-radius: 60; -fx-background-insets: 10; -fx-border-insets: 20; -fx-border-style: dotted;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DialogEditController">
     <columnConstraints>
-        <ColumnConstraints minWidth="0.0" />
-        <ColumnConstraints minWidth="0.0" />
+        <ColumnConstraints maxWidth="169.6" minWidth="0.0" prefWidth="147.6" />
+        <ColumnConstraints maxWidth="116.00000000000003" minWidth="0.0" prefWidth="95.4" />
         <ColumnConstraints minWidth="0.0" />
     </columnConstraints>
     <rowConstraints>
@@ -25,8 +25,14 @@
         <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
-        <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleSave" text="Save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+        <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleSave" text="Save" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
         <Label prefHeight="18.0" prefWidth="84.0" text="Edit Offer" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             <font>
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />

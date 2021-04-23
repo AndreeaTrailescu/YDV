@@ -21,8 +21,8 @@
         <RowConstraints maxHeight="206.19998474121093" minHeight="10.0" prefHeight="35.0" />
         <RowConstraints maxHeight="206.19998474121093" minHeight="10.0" prefHeight="35.0" />
         <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+        <RowConstraints maxHeight="66.19999999999999" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
     </rowConstraints>
     <children>
         <Label prefHeight="16.0" prefWidth="65.0" text="Add Offer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -79,8 +79,8 @@
         <Button fx:id="deleteButton" mnemonicParsing="false" text="Delete Offer" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
         <Button fx:id="bookListButtonButton" mnemonicParsing="false" text="Reservation List" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
     </children>
-   <padding>
-      <Insets bottom="10.0" top="10.0" />
-   </padding>
+    <padding>
+        <Insets bottom="10.0" top="10.0" />
+    </padding>
 
 </GridPane>
