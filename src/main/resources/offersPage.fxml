@@ -3,8 +3,9 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OffersPageController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="515.0" style="-fx-background-insets: 10; -fx-background-radius: 20;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OffersPageController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -14,18 +15,27 @@
     <RowConstraints maxHeight="127.40000000000003" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.rowIndex="2">
+      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="WHITE" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="10.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f5" GridPane.halignment="CENTER" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets />
-         </GridPane.margin></Button>
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

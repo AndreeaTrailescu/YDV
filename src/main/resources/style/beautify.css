@@ -1,0 +1,91 @@
+.root {
+    -fx-background-color: rgb(118, 162, 171);
+    -fx-border-color: white;
+    -fx-border-width: 3px 3px 3px 3px;
+    -fx-border-style: dotted;
+}
+
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+    -fx-effect: dropshadow(three-pass-box, rgb(42,80,88),3,2,0,2);
+}
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.button {
+    -fx-background-color: rgb(129, 165, 172);
+    -fx-background-radius: 38;
+    -fx-effect: dropshadow(three-pass-box, rgb(42,80,88),3,2,0,2);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#2a5058, #61a2b1);
+}
+
+.label {
+    -fx-font-family: "Cambria";
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(42,80,88,0.7), 1, 2, 0, 1);
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.choice-box {
+    -fx-background-color: rgb(129, 165, 172);
+    -fx-mark-color: #6b9ea9;
+    -fx-effect: dropshadow( three-pass-box, rgb(42,80,88), 2, 3 ,0, 1);
+}
+
+.choice-box:hover {
+    -fx-background-color: linear-gradient(#2a5058, #61a2b1);
+}
+
+.choice-box .context-menu {
+    -fx-background-color: rgb(129, 165, 172);
+    -fx-font-family: "DejaVu Serif";
+    -fx-font-weight: bold;
+}
+
+#message {
+    -fx-font-family: "DejaVu Serif";
+    -fx-fill: FIREBRICK;
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header {
+    -fx-background-color: rgb(118, 162, 171);
+    -fx-border-color: white;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-style: dotted;
+}
+
+.table-view .cell {
+    -fx-background-color: rgb(118, 162, 171);
+    -fx-font-family: "Cambria";
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(42,80,88,0.7), 1, 2, 0, 1);
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.list-view .cell{
+    -fx-font-family: "Cambria";
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(42,80,88,0.7), 1, 2, 0, 1);
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(42,80,88,0.7);
+}
+
+.list-view-cell:selected {
+    -fx-border-color: white;
+    -fx-table-cell-border-color: white;
+}
+
+.table-row-cell:selected {
+    -fx-border-color: white;
+    -fx-table-cell-border-color: white;
+}
+

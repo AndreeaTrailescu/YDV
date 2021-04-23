@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.AgencyPageController">
+<AnchorPane focusTraversable="true" prefHeight="300.0" prefWidth="300.0" style="-fx-background-insets: 10; -fx-background-radius: 60; -fx-border-insets: 20;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.AgencyPageController">
     <children>
         <Label layoutX="91.0" layoutY="29.0" text="My Agency Page">
             <font>
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="addButton" layoutX="130.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
-        <Button fx:id="editButton" layoutX="131.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
-        <Button layoutX="124.0" layoutY="161.0" mnemonicParsing="false" text="Delete" />
-        <Button layoutX="101.0" layoutY="208.0" mnemonicParsing="false" text="Rezervation List" />
-        <Button fx:id="logoutButton" layoutX="124.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+        <Button fx:id="addButton" layoutX="126.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="editButton" layoutX="125.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button layoutX="116.0" layoutY="161.0" mnemonicParsing="false" text="Delete" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button layoutX="80.0" layoutY="207.0" mnemonicParsing="false" text="Rezervation List" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="logoutButton" layoutX="115.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
     </children>
+   <effect>
+      <Glow />
+   </effect>
 </AnchorPane>
