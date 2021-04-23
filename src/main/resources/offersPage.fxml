@@ -3,29 +3,43 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OffersPageController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OffersPageController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="36.4" minHeight="10.0" prefHeight="32.4" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="293.0" minHeight="10.0" prefHeight="292.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="47.8" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="62.800000000000004" minHeight="10.0" prefHeight="31.4" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="293.0" minHeight="10.0" prefHeight="273.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="127.40000000000003" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.rowIndex="2">
+      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>
+      <ListView fx:id="offersList" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin></ListView>
+      <Text fx:id="agencyName" layoutX="234.0" layoutY="326.0" textAlignment="CENTER" wrappingWidth="140.40001525878904" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Text>
+      <Text fx:id="noOfferExists" textAlignment="CENTER" wrappingWidth="200.13667678833008" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font></Text>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

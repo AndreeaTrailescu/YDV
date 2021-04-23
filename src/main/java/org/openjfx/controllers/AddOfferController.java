@@ -78,7 +78,7 @@ public class AddOfferController {
     }
 
     @FXML
-    public void handleClose() throws Exception{
+    public void handleClose(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
             Parent root = loader.load();
