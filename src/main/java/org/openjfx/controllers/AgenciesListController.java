@@ -31,6 +31,7 @@ public class AgenciesListController implements Initializable {
     private static ArrayList<String> listOfAgencies = new ArrayList<String>();
     private ObservableList<String> agencies = FXCollections.observableArrayList(listOfAgencies);
     private static String selectedAgency;
+    private static Stage stage = new Stage();
 
     @FXML
     private Button bookListButton;
@@ -52,6 +53,10 @@ public class AgenciesListController implements Initializable {
         }
     }
 
+    public static Stage getStage() {
+        return stage;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int ROW_HEIGHT=24;
@@ -69,7 +74,7 @@ public class AgenciesListController implements Initializable {
         try{
             OffersPageController.setSelectedAgency(selectedAgency);
             Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("offersPage.fxml"));
-            Stage stage = (Stage) (offersButton.getScene().getWindow());
+            stage = (Stage) (offersButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
