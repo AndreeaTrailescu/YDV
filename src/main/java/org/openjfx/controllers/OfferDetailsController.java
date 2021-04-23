@@ -5,9 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.text.Text;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
@@ -17,6 +16,7 @@ import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import static org.dizitart.no2.FindOptions.sort;
@@ -31,6 +31,8 @@ public class OfferDetailsController implements Initializable {
     private Button agencyListButton;
     @FXML
     private Button bookListButton;
+    @FXML
+    private Button makeBookingButton;
     @FXML
     private Button closeButton;
     @FXML
@@ -49,12 +51,44 @@ public class OfferDetailsController implements Initializable {
     private Label clientsLabel;
     @FXML
     private Label priceLabel;
+    @FXML
+    private Label totalPriceLabel;
+    @FXML
+    private TextField numberOfPersons;
+    @FXML
+    private DatePicker checkInDate;
+    @FXML
+    private DatePicker checkOutDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selectedAgency = OffersPageController.getSelectedAgency();
         selectedOffer = OffersPageController.getSelectedOffer();
         showOfferDetails(selectedOffer);
+        numberOfPersons.setOnKeyPressed(event -> {
+            if(event.getCode().equals(KeyCode.ENTER)) {
+                if(!numberOfPersons.getText().equals("")){
+                    double price = Integer.parseInt(numberOfPersons.getText())*Double.parseDouble(priceLabel.getText());
+                    int intPrice=(int) price;
+                    if(price==intPrice){
+                        totalPriceLabel.setText(String.valueOf(intPrice));
+                    }
+                    else{
+                        totalPriceLabel.setText(String.valueOf(price));
+                    }
+                }
+            }
+        });
+        checkInDate.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+                setDisable(empty || date.compareTo(today) < 0 );
+            }
+        });
+        checkInDate.valueProperty().addListener((ov, oldValue, newValue) -> {
+            checkOutDate.setValue(newValue.plusDays(Integer.parseInt(nightsLabel.getText())));
+        });
     }
     @FXML
     public void handleAgencyList() {

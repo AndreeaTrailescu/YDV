@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OfferDetailsController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OfferDetailsController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.2" minWidth="10.0" prefWidth="164.6" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.40000000000003" minWidth="10.0" prefWidth="161.40000000000003" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="183.6" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -18,84 +17,195 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Name" GridPane.halignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="132.0" text="Name" textAlignment="CENTER" GridPane.halignment="LEFT">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="Destination" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="131.0" text="Destination" textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.rowIndex="1">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="Hotel's name" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="131.0" text="Hotel's name" textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.rowIndex="2">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="Meals/day" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Label alignment="CENTER" prefHeight="20.0" prefWidth="126.0" text="Meals/day" GridPane.halignment="LEFT" GridPane.rowIndex="3">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="Number of nights" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <Label alignment="CENTER" prefHeight="20.0" prefWidth="132.0" text="Number of nights" GridPane.halignment="LEFT" GridPane.rowIndex="4">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="No. of clients" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Label alignment="CENTER" prefHeight="20.0" prefWidth="124.0" text="No. of clients" GridPane.halignment="LEFT" GridPane.rowIndex="5">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label text="Price/person" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <Label alignment="CENTER" prefHeight="20.0" prefWidth="121.0" text="Price/person" GridPane.halignment="LEFT" GridPane.rowIndex="6">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
       </Label>
-      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-       <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+       <Label alignment="CENTER" prefHeight="20.0" prefWidth="145.0" text="Number of persons" GridPane.halignment="LEFT" GridPane.rowIndex="7">
+           <font>
+               <Font name="DejaVu Serif Bold" size="14.0" />
+           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+       </Label>
+       <Label alignment="CENTER" prefHeight="20.0" prefWidth="171.0" text="Total price" GridPane.halignment="LEFT" GridPane.rowIndex="8">
            <font>
                <Font name="DejaVu Serif Bold" size="14.0" />
            </font>
        </Label>
-       <Label fx:id="destinationLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+       <Label alignment="CENTER" prefHeight="20.0" prefWidth="132.0" text="Check-in date" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+           <font>
+               <Font name="DejaVu Serif Bold" size="14.0" />
+           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+       </Label>
+       <Label alignment="CENTER" prefHeight="20.0" prefWidth="134.0" text="Check-out date" GridPane.halignment="LEFT" GridPane.rowIndex="10">
+           <font>
+               <Font name="DejaVu Serif Bold" size="14.0" />
+           </font>
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin>
+       </Label>
+       <Button fx:id="makeBookingButton" mnemonicParsing="false" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin></Button>
+       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.halignment="LEFT" GridPane.rowIndex="11">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin></Button>
+       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Button>
+       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+         <GridPane.margin>
+            <Insets left="20.0" />
+         </GridPane.margin></Button>
+       <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Button>
+       <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT">
+           <font>
+               <Font name="DejaVu Serif Bold" size="14.0" />
+           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
+       </Label>
+       <Label fx:id="destinationLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="176.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label fx:id="hotelLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Label fx:id="hotelLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label fx:id="mealsLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Label fx:id="mealsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label fx:id="nightsLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <Label fx:id="nightsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="174.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label fx:id="clientsLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Label fx:id="clientsLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="175.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Label fx:id="priceLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <Label fx:id="priceLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="175.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
       </Label>
-      <Button fx:id="closeButton" mnemonicParsing="false" text="Close" onAction="#handleClose" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+      <DatePicker fx:id="checkInDate" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></DatePicker>
+      <DatePicker fx:id="checkOutDate" disable="true" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></DatePicker>
+      <TextField fx:id="numberOfPersons" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="174.0" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></TextField>
+      <Label fx:id="totalPriceLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+          <font>
+              <Font name="DejaVu Serif Bold" size="14.0" />
+          </font>
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin>
+      </Label>
    </children>
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
