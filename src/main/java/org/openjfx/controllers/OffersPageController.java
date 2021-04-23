@@ -28,6 +28,9 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class OffersPageController implements Initializable {
     private static String selectedAgency;
+    private static String selectedOffer;
+    private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
+    private static Stage stage = new Stage();
 
     @FXML
     private Button agencyListButton;
@@ -46,31 +49,55 @@ public class OffersPageController implements Initializable {
         OffersPageController.selectedAgency = selectedAgency;
     }
 
+    public static String getSelectedAgency() {
+        return selectedAgency;
+    }
+
+    public static String getSelectedOffer() {
+        return selectedOffer;
+    }
+
+    public static Stage getStage() {
+        return stage;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
-        Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency",selectedAgency),sort("nameOfOffer", SortOrder.Ascending));
+        Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency", selectedAgency), sort("nameOfOffer", SortOrder.Ascending));
         ArrayList<String> listOfOffers = new ArrayList<String>();
-        for(Offer offer : offers){
+        for (Offer offer : offers) {
             listOfOffers.add(offer.getNameOfOffer());
         }
         ObservableList<String> observableOffers = FXCollections.observableArrayList(listOfOffers);
         agencyName.setText(selectedAgency);
-        int ROW_HEIGHT=24;
-        if(listOfOffers.isEmpty()){
+        int ROW_HEIGHT = 24;
+        if (listOfOffers.isEmpty()) {
             offersList.setOpacity(0);
             noOfferExists.setText("No offer has been added yet.");
-        }
-        else{
+        } else {
             offersList.maxHeightProperty().bind(Bindings.size(observableOffers).multiply(ROW_HEIGHT));
             offersList.setItems(observableOffers);
+            offersList.setOnMouseClicked(click -> {
+                if (click.getClickCount() == 2) {
+                    selectedOffer = (String) offersList.getSelectionModel()
+                            .getSelectedItem();
+                    AgenciesListController.getStage().close();
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("offerDetailsPage.fxml"));
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } catch (IOException e) {
+                        System.out.println("Error");
+                    }
+                }
+            });
         }
     }
 
     @FXML
     public void handleAgencyList() {
-        try{
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
             Stage stage = (Stage) (agencyListButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
@@ -81,8 +108,8 @@ public class OffersPageController implements Initializable {
 
     @FXML
     public void handleLogout() {
-        try{
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Stage stage = (Stage) (logoutButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
