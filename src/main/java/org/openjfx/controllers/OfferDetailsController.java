@@ -36,6 +36,7 @@ public class OfferDetailsController implements Initializable {
     private static String selectedOffer;
     private static String clientUsername;
     private Offer offerSelected;
+    private Booking existingBooking;
 
     @FXML
     private Button agencyListButton;
@@ -78,7 +79,7 @@ public class OfferDetailsController implements Initializable {
         selectedOffer = OffersPageController.getSelectedOffer();
         clientUsername = OffersPageController.getClientUsername();
         showOfferDetails(selectedOffer);
-        Booking existingBooking = BOOKING_REPOSITORY.find(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer),eq("clientUsername",clientUsername))).firstOrDefault();
+        existingBooking = BOOKING_REPOSITORY.find(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer),eq("clientUsername",clientUsername))).firstOrDefault();
         if(existingBooking!=null){
             numberOfPersons.setText(existingBooking.getNumberOfPersons());
             totalPriceLabel.setText(existingBooking.getTotalPrice());
@@ -145,7 +146,9 @@ public class OfferDetailsController implements Initializable {
     @FXML
     public void handleMakeBooking(){
         try {
-            System.out.println();
+            if(existingBooking!=null){
+                BOOKING_REPOSITORY.remove(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer),eq("clientUsername",clientUsername)));
+            }
             String id = NitriteId.newId().toString();
             BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
                     checkInDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),checkOutDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),
