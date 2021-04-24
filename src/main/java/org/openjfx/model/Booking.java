@@ -18,4 +18,28 @@ public class Booking {
         this.checkOutDate = checkOutDate;
         this.message = message;
     }
+
+    public Booking(){
+
+    }
+
+    public String getNumberOfPersons() {
+        return numberOfPersons;
+    }
+
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+
+    public String getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

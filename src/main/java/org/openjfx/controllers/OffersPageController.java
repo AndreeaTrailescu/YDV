@@ -96,7 +96,7 @@ public class OffersPageController implements Initializable {
                         stage.setScene(new Scene(root));
                         stage.show();
                     } catch (IOException e) {
-                        System.out.println("Error");
+                        System.out.println(e.getCause());
                     }
                 }
             });

@@ -21,6 +21,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
@@ -110,23 +111,23 @@
             <Insets left="20.0" />
          </GridPane.margin>
        </Label>
-       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>
-       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.halignment="LEFT" GridPane.rowIndex="11">
+       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.halignment="LEFT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin></Button>
-       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Button>
-       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="LEFT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin></Button>
-       <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
+       <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Button>
@@ -206,6 +207,10 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
+      <Text fx:id="messageText" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11" >
+          <font>
+              <Font size="13.0" />
+          </font></Text>
    </children>
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

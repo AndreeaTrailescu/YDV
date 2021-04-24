@@ -7,9 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.NitriteId;
-import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Booking;
@@ -19,18 +19,23 @@ import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
-import static org.dizitart.no2.FindOptions.sort;
+import static org.dizitart.no2.objects.filters.ObjectFilters.and;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class OfferDetailsController implements Initializable {
     private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
+    private static final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private static String selectedAgency;
     private static String selectedOffer;
     private static String clientUsername;
+    private Offer offerSelected;
 
     @FXML
     private Button agencyListButton;
@@ -64,6 +69,8 @@ public class OfferDetailsController implements Initializable {
     private DatePicker checkInDate;
     @FXML
     private DatePicker checkOutDate;
+    @FXML
+    private Text messageText;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,6 +78,21 @@ public class OfferDetailsController implements Initializable {
         selectedOffer = OffersPageController.getSelectedOffer();
         clientUsername = OffersPageController.getClientUsername();
         showOfferDetails(selectedOffer);
+        Booking existingBooking = BOOKING_REPOSITORY.find(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer),eq("clientUsername",clientUsername))).firstOrDefault();
+        if(existingBooking!=null){
+            numberOfPersons.setText(existingBooking.getNumberOfPersons());
+            totalPriceLabel.setText(existingBooking.getTotalPrice());
+            String inDate = existingBooking.getCheckInDate();
+            String localInDate= inDate.substring(6,10)+"-"+inDate.substring(3,5)+"-"+inDate.substring(0,2);
+            checkInDate.setValue(LocalDate.parse(localInDate));
+            checkOutDate.setValue(checkInDate.getValue().plusDays(Integer.parseInt(offerSelected.getNights())));
+            messageText.setText(existingBooking.getMessage());
+            if(existingBooking.getMessage().contains("deadline"))
+            {
+                numberOfPersons.setDisable(true);
+                checkInDate.setDisable(true);
+            }
+        }
         numberOfPersons.setOnKeyPressed(event -> {
             if(event.getCode().equals(KeyCode.ENTER)) {
                 if(!numberOfPersons.getText().equals("")){
@@ -150,14 +172,7 @@ public class OfferDetailsController implements Initializable {
         }
     }
     public void showOfferDetails(String offerName){
-        Offer offerSelected = new Offer();
-        Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency",selectedAgency),sort("nameOfOffer", SortOrder.Ascending));
-        for(Offer offer : offers){
-            if(offer.getNameOfOffer().equals(offerName)){
-                offerSelected=offer;
-                break;
-            }
-        }
+        offerSelected = OFFER_REPOSITORY.find(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer))).firstOrDefault();
         nameLabel.setText(offerSelected.getNameOfOffer());
         destinationLabel.setText(offerSelected.getDestination());
         hotelLabel.setText(offerSelected.getHotelName());
