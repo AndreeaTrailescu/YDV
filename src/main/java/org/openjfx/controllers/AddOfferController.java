@@ -59,7 +59,7 @@ public class AddOfferController {
     private TextField price;
 
     @FXML
-    public void handleSaveOffer() throws Exception{
+    public void handleSaveOffer(){
         try {
             User loggedInUser=REPOSITORY.find(eq("username",username)).firstOrDefault();
             nameOfAgency=loggedInUser.getNameOfAgency();

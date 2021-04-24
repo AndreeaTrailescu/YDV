@@ -29,6 +29,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 public class OffersPageController implements Initializable {
     private static String selectedAgency;
     private static String selectedOffer;
+    private static String clientUsername;
     private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
     private static Stage stage = new Stage();
 
@@ -55,6 +56,14 @@ public class OffersPageController implements Initializable {
 
     public static String getSelectedOffer() {
         return selectedOffer;
+    }
+
+    public static String getClientUsername() {
+        return clientUsername;
+    }
+
+    public static void setClientUsername(String clientUsername) {
+        OffersPageController.clientUsername = clientUsername;
     }
 
     public static Stage getStage() {

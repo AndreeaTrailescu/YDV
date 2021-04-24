@@ -8,15 +8,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.openjfx.model.Booking;
 import org.openjfx.model.Offer;
+import org.openjfx.services.BookingService;
 import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import static org.dizitart.no2.FindOptions.sort;
@@ -26,6 +30,7 @@ public class OfferDetailsController implements Initializable {
     private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
     private static String selectedAgency;
     private static String selectedOffer;
+    private static String clientUsername;
 
     @FXML
     private Button agencyListButton;
@@ -64,6 +69,7 @@ public class OfferDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selectedAgency = OffersPageController.getSelectedAgency();
         selectedOffer = OffersPageController.getSelectedOffer();
+        clientUsername = OffersPageController.getClientUsername();
         showOfferDetails(selectedOffer);
         numberOfPersons.setOnKeyPressed(event -> {
             if(event.getCode().equals(KeyCode.ENTER)) {
@@ -107,6 +113,24 @@ public class OfferDetailsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) closeButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    @FXML
+    public void handleMakeBooking(){
+        try {
+            System.out.println();
+            String id = NitriteId.newId().toString();
+            BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
+                    checkInDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),checkOutDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),
+                    "Your booking hasn't been approved/rejected yet.");
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) makeBookingButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

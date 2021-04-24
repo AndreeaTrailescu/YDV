@@ -110,7 +110,7 @@
             <Insets left="20.0" />
          </GridPane.margin>
        </Label>
-       <Button fx:id="makeBookingButton" mnemonicParsing="false" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>

@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.openjfx.model.Booking;
+import org.openjfx.services.BookingService;
 import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
 import org.openjfx.services.UserService;
@@ -20,6 +22,7 @@ public class App extends Application {
         initDirectory();
         UserService.initDatabase();
         OfferService.initDatabase();
+        BookingService.initDatabase();
         Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -34,6 +37,10 @@ public class App extends Application {
         Path offersHomePath = FileSystemService.OFFERS_HOME_PATH;
         if (!Files.exists(offersHomePath))
             offersHomePath.toFile().mkdirs();
+
+        Path bookingsHomePath = FileSystemService.BOOKINGS_HOME_PATH;
+        if (!Files.exists(bookingsHomePath))
+            bookingsHomePath.toFile().mkdirs();
     }
 
     public static void main(String[] args) {
