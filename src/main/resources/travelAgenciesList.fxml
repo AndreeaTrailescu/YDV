@@ -12,8 +12,8 @@
   <rowConstraints>
       <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="35.2" />
       <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="32.800000000000004" />
-      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="51.8" />
-      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="23.19999999999999" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="44.0" />
+      <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="31.19999999999999" />
     <RowConstraints maxHeight="342.8" minHeight="10.0" prefHeight="177.60000000000002" />
       <RowConstraints maxHeight="191.4" minHeight="10.0" prefHeight="56.80000000000001" />
   </rowConstraints>
