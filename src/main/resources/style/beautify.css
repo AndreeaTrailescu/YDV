@@ -55,6 +55,12 @@
     -fx-font-weight: bold;
 }
 
+#messageText {
+    -fx-font-family: "DejaVu Serif";
+    -fx-fill: FIREBRICK;
+    -fx-font-weight: bold;
+}
+
 .table-view .column-header {
     -fx-background-color: rgb(118, 162, 171);
     -fx-border-color: white;

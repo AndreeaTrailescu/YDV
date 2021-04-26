@@ -25,7 +25,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.and;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AcceptController {
-    private String date, nameOfAgency;
+    private String date, nameOfAgency, username;
     private Booking selectedBooking;
     private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
@@ -71,6 +71,7 @@ public class AcceptController {
         Parent root = loader.load();
         RezervationsController controller = loader.getController();
         controller.setNameOfAgency(nameOfAgency);
+        controller.setUsername(username);
         controller.setBookings(bookings);
         stage.setScene(new Scene(root));
         stage.show();
@@ -92,6 +93,7 @@ public class AcceptController {
         BookingDetailsController controller = loader.getController();
         controller.setSelectedBooking(selectedBooking);
         controller.setNameOfAgency(nameOfAgency);
+        controller.setUsername(username);
         controller.setBookings(bookings);
         stage.setScene(new Scene(root));
         stage.show();
@@ -113,5 +115,9 @@ public class AcceptController {
 
     public void setBookings(ObservableList<Booking> bookings) {
         this.bookings = FXCollections.observableArrayList(bookings);
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

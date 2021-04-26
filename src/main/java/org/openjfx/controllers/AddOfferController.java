@@ -14,8 +14,10 @@ import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.openjfx.model.Booking;
 import org.openjfx.model.Offer;
 import org.openjfx.model.User;
+import org.openjfx.services.BookingService;
 import org.openjfx.services.OfferService;
 import org.openjfx.services.UserService;
 
@@ -28,7 +30,9 @@ public class AddOfferController {
     private static String username,id;
     private static String nameOfAgency;
     private final ObjectRepository<User> REPOSITORY =UserService.getUserRepository();
+    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private ObservableList<Offer> offers ;
+    private ObservableList<Booking> bookings;
     private  static Stage stage = new Stage();
 
     @FXML
@@ -127,6 +131,29 @@ public class AddOfferController {
         controller.setOffers(offers);
         Stage primaryStage = (Stage) editButton.getScene().getWindow();
         primaryStage.close();
+    }
+
+    @FXML
+    public void handleBookingList() throws IOException {
+        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
+        bookings = FXCollections.observableArrayList();
+        for(Booking b : cursor) {
+            if(!b.getMessage().contains("deadline"))
+                bookings.add(b);
+        }
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("bookingsPage.fxml"));
+            Parent root = loader.load();
+            RezervationsController controller = loader.getController();
+            controller.setNameOfAgency(nameOfAgency);
+            controller.setBookings(bookings);
+            controller.setUsername(username);
+            Stage bookList = (Stage) bookListButton.getScene().getWindow();
+            bookList.close();
+            Stage stage1 = new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.show();
+
     }
 
     public void setUsername(String username) {

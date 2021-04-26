@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.dizitart.no2.FindOptions;
 import org.dizitart.no2.SortOrder;
@@ -19,8 +18,6 @@ import org.openjfx.services.BookingService;
 import org.openjfx.services.OfferService;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
 
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
@@ -97,6 +94,7 @@ public class AgencyPageController {
             Parent root = loader.load();
             EditOfferController controller = loader.getController();
             controller.setUsername(username);
+            System.out.println(username);
             controller.setNameOfAgency(nameOfAgency);
             controller.setOffers(offers);
             Scene scene = new Scene(root);
@@ -123,6 +121,7 @@ public class AgencyPageController {
             Parent root = loader.load();
             RezervationsController controller = loader.getController();
             controller.setNameOfAgency(nameOfAgency);
+            controller.setUsername(username);
             controller.setBookings(bookings);
             Stage bookList = (Stage) bookListButton.getScene().getWindow();
             bookList.close();
