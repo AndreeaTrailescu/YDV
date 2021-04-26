@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="205.0" prefWidth="407.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.AcceptController">
+    <children>
+        <Label layoutX="125.0" layoutY="31.0" prefHeight="31.0" prefWidth="155.0" text="The deadline for payment is:" />
+        <DatePicker fx:id="deadlineDate" layoutX="76.0" layoutY="80.0" prefHeight="26.0" prefWidth="272.0" promptText="Deadline Date" />
+        <Button fx:id="saveButton" layoutX="307.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+        <Button fx:id="closeButton" layoutX="61.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+    </children>
+</AnchorPane>
