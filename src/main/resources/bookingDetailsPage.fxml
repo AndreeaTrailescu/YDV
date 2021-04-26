@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="432.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.BookingDetailsController">
+    <children>
+        <GridPane layoutX="44.0" layoutY="39.0" prefHeight="246.0" prefWidth="450.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Client Username" />
+                <Label text="Name Of Offer" GridPane.rowIndex="1" />
+                <Label text="Number Of Persons" GridPane.rowIndex="4" />
+                <Label text="Total Price" GridPane.rowIndex="2" />
+                <Label text="Check-in Date" GridPane.rowIndex="5" />
+                <Label text="Check-out Date" GridPane.rowIndex="6" />
+                <Label fx:id="clientUsername" text="Label" GridPane.columnIndex="1" />
+                <Label fx:id="nameOfOffer" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="numberOfPersons" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="totalPrice" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="checkinDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label fx:id="checkoutDate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label text="Total Number Available" GridPane.rowIndex="3" />
+                <Label fx:id="totalNumber" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            </children>
+        </GridPane>
+        <Button fx:id="rejectButton" layoutX="65.0" layoutY="359.0" mnemonicParsing="false" text="Reject" />
+        <Button fx:id="acceptButton" layoutX="238.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAccept" text="Accept" />
+        <Button fx:id="closeButton" layoutX="404.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+    </children>
+</AnchorPane>
