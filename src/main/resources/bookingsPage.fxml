@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RezervationsController">
+    <children>
+        <Button fx:id="logoutButton" layoutX="323.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+        <Button fx:id="closeButton" layoutX="57.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+        <TableView fx:id="bookingTableView" layoutX="11.0" layoutY="61.0" prefHeight="200.0" prefWidth="421.0">
+            <columns>
+                <TableColumn fx:id="offerNameColumn" prefWidth="204.19997596740723" text="Name of Offer" />
+                <TableColumn fx:id="usernameColumn" prefWidth="217.4000244140625" text="Username of Client" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
