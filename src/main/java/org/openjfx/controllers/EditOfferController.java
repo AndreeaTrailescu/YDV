@@ -154,10 +154,11 @@ public class EditOfferController {
             stage.setScene(new Scene(root));
             stage.show();
             DialogEditController controller = loader.getController();
-            controller.setOffer(offer);
             controller.setId(id);
             controller.setUsername(username);
+            System.out.println(username);
             controller.setNameOfAgency(nameOfAgency);
+            controller.setOffer(offer);
 
             return controller.isOkClicked();
         } catch (Exception e) {

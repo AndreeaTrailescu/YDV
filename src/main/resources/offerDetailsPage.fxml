@@ -5,25 +5,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OfferDetailsController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="450.0" style="-fx-background-insets: 10; -fx-background-radius: 30; -fx-border-insets: 15;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.OfferDetailsController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="183.6" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="27.4" minHeight="10.0" prefHeight="27.4" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="37.4" minHeight="10.0" prefHeight="37.4" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="37.39999999999998" minHeight="10.0" prefHeight="36.39999999999998" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60.0" minHeight="5.399999999999977" prefHeight="23.399999999999977" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="54.60000000000002" minHeight="0.0" prefHeight="50.39999999999998" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="37.39999999999998" minHeight="6.399999999999977" prefHeight="16.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="132.0" text="Name" textAlignment="CENTER" GridPane.halignment="LEFT">
@@ -111,26 +111,41 @@
             <Insets left="20.0" />
          </GridPane.margin>
        </Label>
-       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets />
-         </GridPane.margin></Button>
-       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="#fdfafa" GridPane.halignment="LEFT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets left="20.0" />
-         </GridPane.margin></Button>
-       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets right="20.0" />
-         </GridPane.margin></Button>
-       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="LEFT" GridPane.rowIndex="13">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#faf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets left="20.0" />
-         </GridPane.margin></Button>
-       <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+       <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" textFill="#f8f4f4" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets right="20.0" />
-         </GridPane.margin></Button>
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
        <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT">
            <font>
                <Font name="DejaVu Serif Bold" size="14.0" />
@@ -187,11 +202,11 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <DatePicker fx:id="checkInDate" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+      <DatePicker fx:id="checkInDate" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></DatePicker>
-      <DatePicker fx:id="checkOutDate" disable="true" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+      <DatePicker fx:id="checkOutDate" disable="true" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></DatePicker>
@@ -207,7 +222,7 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <Text fx:id="messageText" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11" >
+      <Text fx:id="messageText" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11">
           <font>
               <Font size="13.0" />
           </font></Text>

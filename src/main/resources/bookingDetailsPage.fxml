@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="432.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.BookingDetailsController">
+<AnchorPane prefHeight="432.0" prefWidth="527.0" style="-fx-background-insets: 20; -fx-background-radius: 60; -fx-border-insets: 30;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.BookingDetailsController">
     <children>
-        <GridPane layoutX="44.0" layoutY="39.0" prefHeight="246.0" prefWidth="450.0">
+        <GridPane layoutX="63.0" layoutY="39.0" prefHeight="298.0" prefWidth="431.0">
             <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,8 +37,17 @@
                 <Label fx:id="totalNumber" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
-        <Button fx:id="rejectButton" layoutX="65.0" layoutY="359.0" mnemonicParsing="false" text="Reject" />
-        <Button fx:id="acceptButton" layoutX="238.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAccept" text="Accept" />
-        <Button fx:id="closeButton" layoutX="404.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+        <Button fx:id="rejectButton" layoutX="85.0" layoutY="359.0" mnemonicParsing="false" text="Reject" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="acceptButton" layoutX="246.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAccept" text="Accept" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+        <Button fx:id="closeButton" layoutX="414.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
     </children>
 </AnchorPane>

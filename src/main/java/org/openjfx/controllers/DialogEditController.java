@@ -81,7 +81,7 @@ public class DialogEditController {
     public void setOffer(Offer offer) {
         this.offer = offer;
 
-        this.offer.setId(id);
+        offer.setId(id);
         nameOfOffer.setText(nameOfOffer.getText());
         nights.setText(nights.getText());
         hotelName.setText(hotelName.getText());

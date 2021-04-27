@@ -21,7 +21,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class BookingDetailsController {
     private Booking selectedBooking;
-    private String nameOfAgency;
+    private String nameOfAgency,username;
     private ObservableList<Booking> bookings;
     private final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
 
@@ -60,6 +60,7 @@ public class BookingDetailsController {
         Parent root = loader.load();
         RezervationsController controller = loader.getController();
         controller.setNameOfAgency(nameOfAgency);
+        controller.setUsername(username);
         controller.setBookings(bookings);
         stage.setScene(new Scene(root));
         stage.show();
@@ -71,10 +72,11 @@ public class BookingDetailsController {
         stage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("acceptBooking.fxml"));
         Parent root = loader.load();
-        /*AcceptController controller = loader.getController();
+        AcceptController controller = loader.getController();
         controller.setSelectedBooking(selectedBooking);
         controller.setNameOfAgency(nameOfAgency);
-        controller.setBookings(bookings);*/
+        controller.setUsername(username);
+        controller.setBookings(bookings);
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -100,5 +102,9 @@ public class BookingDetailsController {
 
     public void setBookings(ObservableList<Booking> bookings) {
         this.bookings = FXCollections.observableArrayList(bookings);
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
