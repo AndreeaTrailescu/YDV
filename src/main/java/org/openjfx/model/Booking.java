@@ -42,4 +42,24 @@ public class Booking {
     public String getMessage() {
         return message;
     }
+
+    public String getNameOfAgency() {
+        return nameOfAgency;
+    }
+
+    public String getClientUsername() {
+        return clientUsername;
+    }
+
+    public String getNameOfOffer() {
+        return nameOfOffer;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

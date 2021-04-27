@@ -13,19 +13,24 @@ import org.dizitart.no2.FindOptions;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.openjfx.model.Booking;
 import org.openjfx.model.Offer;
+import org.openjfx.services.BookingService;
 import org.openjfx.services.OfferService;
-import org.openjfx.services.UserService;
 
 import java.io.IOException;
-
-import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
+
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AgencyPageController {
     private static ObservableList<Offer> offers;
     private String username, nameOfAgency;
     private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
+    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObservableList<Booking> bookings;
     private static Stage stage = new Stage();
 
 
@@ -104,6 +109,31 @@ public class AgencyPageController {
         }
     }
 
+    @FXML
+    public void handleBookingList() throws Exception{
+        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
+        bookings = FXCollections.observableArrayList();
+        for(Booking b : cursor) {
+            if(!b.getMessage().contains("deadline"))
+                bookings.add(b);
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("bookingsPage.fxml"));
+            Parent root = loader.load();
+            RezervationsController controller = loader.getController();
+            controller.setNameOfAgency(nameOfAgency);
+            controller.setBookings(bookings);
+            Stage bookList = (Stage) bookListButton.getScene().getWindow();
+            bookList.close();
+            Stage stage1 = new Stage();
+            stage1.setScene(new Scene(root));
+            stage1.show();
+        } catch(Exception e) {
+            System.out.println("eroare");
+        }
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -120,4 +150,7 @@ public class AgencyPageController {
         return stage;
     }
 
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
+    }
 }
