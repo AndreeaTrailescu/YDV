@@ -41,9 +41,6 @@ public class RegisterControllerAgent {
             Stage stage = (Stage) (saveButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
-            AgencyPageController agencyController = loader.getController();
-            agencyController.setUsername(usernameField);
-            agencyController.setNameOfAgency(nameOfAgency.getText());
         } catch (IOException e) {
             System.out.println("eroare");
         }

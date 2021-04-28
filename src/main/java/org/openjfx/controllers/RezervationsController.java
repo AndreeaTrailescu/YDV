@@ -20,8 +20,8 @@ import java.io.IOException;
 
 public class RezervationsController {
     private static Stage stage = new Stage();
-    private String nameOfAgency,username;
-    private ObservableList<Booking> bookings;
+    private static String nameOfAgency,username;
+    private static ObservableList<Booking> bookings;
     private static Booking selectedBooking;
 
     @FXML
@@ -76,9 +76,6 @@ public class RezervationsController {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
-        AgencyPageController agencyPageController = loader.getController();
-        agencyPageController.setNameOfAgency(nameOfAgency);
-        agencyPageController.setUsername(username);
     }
 
     @FXML
@@ -93,23 +90,20 @@ public class RezervationsController {
         }
     }
 
-    public void setBookings(ObservableList<Booking> bookings) {
-        this.bookings = FXCollections.observableArrayList(bookings);
+    public static void setBookings(ObservableList<Booking> bookings) {
+        RezervationsController.bookings = FXCollections.observableArrayList(bookings);
     }
 
-    public void setNameOfAgency(String nameOfAgency) {
-        this.nameOfAgency = nameOfAgency;
+    public static void setNameOfAgency(String nameOfAgency) {
+        RezervationsController.nameOfAgency = nameOfAgency;
     }
 
-    public String getNameOfAgency() {
-        return nameOfAgency;
+    public static void setUsername(String username) {
+        RezervationsController.username = username;
     }
 
     public static Booking getSelectedBooking() {
         return selectedBooking;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 }

@@ -58,11 +58,14 @@ public class LoginController {
                     Parent root = (Parent) loader.load();
                     stage.setScene(new Scene(root));
                     stage.show();
-                    AgencyPageController agencyController = loader.getController();
-                    agencyController.setUsername(usernameField.getText());
                     User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
-                    String nameOfAgency = loggedInUser.getNameOfAgency();
-                    agencyController.setNameOfAgency(nameOfAgency);
+                    AgencyPageController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    AddOfferController.setUsername(usernameField.getText());
+                    AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    EditOfferController.setUsername(usernameField.getText());
+                    EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    RezervationsController.setUsername(usernameField.getText());
+                    RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
                 }
             }
 
@@ -86,6 +89,14 @@ public class LoginController {
                     reg.setUsernameField(usernameField);
                     reg.setPasswordField(passwordField);
                     reg.setRole(role);
+                    User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
+                    AgencyPageController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    AddOfferController.setUsername(usernameField.getText());
+                    AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    EditOfferController.setUsername(usernameField.getText());
+                    EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    RezervationsController.setUsername(usernameField.getText());
+                    RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
                 }
             }
         } catch (PasswordIncorrectException e) {

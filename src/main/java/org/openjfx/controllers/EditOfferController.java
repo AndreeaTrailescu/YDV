@@ -18,11 +18,11 @@ import java.io.IOException;
 
 
 public class EditOfferController {
-    private ObservableList<Offer> offers = AgencyPageController.getOffers();
+    private static ObservableList<Offer> offers;
     private Stage primaryStage = AgencyPageController.getStage();
     private Stage secondStage = DialogEditController.getSecondStage();
     private Stage thirdStage = AddOfferController.getStage();
-    private String id,username,nameOfAgency;
+    private static String id,username,nameOfAgency;
 
     @FXML
     public TableView<Offer> offerTable;
@@ -128,19 +128,28 @@ public class EditOfferController {
     }
 
     @FXML
-    public void handleAdd() throws Exception{
+    public void handleAdd(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-            AddOfferController addController = loader.getController();
-            addController.setUsername(username);
-            addController.setNameOfAgency(nameOfAgency);
-            addController.setOffers(offers);
             Stage addStage = (Stage) addButton.getScene().getWindow();
             addStage.close();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    @FXML
+    public void handleDelete() {
+        try {
+            primaryStage.close();
+            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("deleteOfferPage.fxml"));
+            Stage stage = (Stage) (deleteButton.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException e) {
             System.out.println("Error");
         }
@@ -185,15 +194,15 @@ public class EditOfferController {
         }
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String username) {
+        EditOfferController.username = username;
     }
 
-    public void setNameOfAgency(String nameOfAgency) {
-        this.nameOfAgency = nameOfAgency;
+    public static void setNameOfAgency(String nameOfAgency) {
+        EditOfferController.nameOfAgency = nameOfAgency;
     }
 
-    public void setOffers(ObservableList<Offer> offers) {
-        this.offers = FXCollections.observableArrayList(offers);
+    public static void setOffers(ObservableList<Offer> offers) {
+        EditOfferController.offers = offers;
     }
 }
