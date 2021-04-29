@@ -89,14 +89,6 @@ public class LoginController {
                     reg.setUsernameField(usernameField);
                     reg.setPasswordField(passwordField);
                     reg.setRole(role);
-                    User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
-                    AgencyPageController.setNameOfAgency(loggedInUser.getNameOfAgency());
-                    AddOfferController.setUsername(usernameField.getText());
-                    AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
-                    EditOfferController.setUsername(usernameField.getText());
-                    EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
-                    RezervationsController.setUsername(usernameField.getText());
-                    RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
                 }
             }
         } catch (PasswordIncorrectException e) {

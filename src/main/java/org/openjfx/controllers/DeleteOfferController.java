@@ -1,6 +1,5 @@
 package org.openjfx.controllers;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import org.openjfx.model.Offer;
@@ -47,6 +47,22 @@ public class DeleteOfferController implements Initializable {
             listOfOffers.add(offer.getNameOfOffer());
         }
         TextFields.bindAutoCompletion(offerName,listOfOffers);
+        offerName.setOnKeyPressed(event -> {
+            if(event.getCode().equals(KeyCode.ENTER)) {
+                if(!offerName.getText().equals("") && listOfOffers.contains(offerName.getText())){
+                    try{
+                        DeleteOfferDetailsController.setNameOfOffer(offerName.getText());
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("deleteOfferDetailsPage.fxml"));
+                        Parent root = loader.load();
+                        Stage stage = (Stage) addButton.getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } catch (IOException e) {
+                        System.out.println("Error");
+                    }
+                }
+            }
+        });
     }
 
     @FXML

@@ -155,4 +155,8 @@ public class AgencyPageController {
     public static Stage getStage() {
         return stage;
     }
+
+    public static String getNameOfAgency() {
+        return nameOfAgency;
+    }
 }

@@ -10,13 +10,17 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.dizitart.no2.objects.ObjectRepository;
+import org.openjfx.model.User;
 import org.openjfx.services.UserService;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class RegisterControllerAgent {
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
+public class RegisterControllerAgent {
+    private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
     private String usernameField;
     private String passwordField;
     private String role;
@@ -41,6 +45,14 @@ public class RegisterControllerAgent {
             Stage stage = (Stage) (saveButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
+            User loggedInUser=REPOSITORY.find(eq("username",usernameField)).firstOrDefault();
+            AgencyPageController.setNameOfAgency(loggedInUser.getNameOfAgency());
+            AddOfferController.setUsername(usernameField);
+            AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+            EditOfferController.setUsername(usernameField);
+            EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+            RezervationsController.setUsername(usernameField);
+            RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
         } catch (IOException e) {
             System.out.println("eroare");
         }
