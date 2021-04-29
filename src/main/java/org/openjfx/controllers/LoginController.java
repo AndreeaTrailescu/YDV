@@ -64,6 +64,7 @@ public class LoginController {
                     AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
                     EditOfferController.setUsername(usernameField.getText());
                     EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+                    DeleteOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
                     RezervationsController.setUsername(usernameField.getText());
                     RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
                 }

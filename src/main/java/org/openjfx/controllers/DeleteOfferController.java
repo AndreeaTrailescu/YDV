@@ -1,5 +1,6 @@
 package org.openjfx.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +12,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
+import org.dizitart.no2.FindOptions;
+import org.dizitart.no2.SortOrder;
+import org.dizitart.no2.objects.Cursor;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Offer;
+import org.openjfx.services.OfferService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 
 public class DeleteOfferController implements Initializable {
+    private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
+    private static String nameOfAgency;
     private static ObservableList<Offer> offers;
     private static Stage stage = new Stage();
 
@@ -36,12 +45,24 @@ public class DeleteOfferController implements Initializable {
     @FXML
     private Button logoutButton;
 
-    public static void setOffers(ObservableList<Offer> offers) {
-        DeleteOfferController.offers = offers;
+    public static void setNameOfAgency(String nameOfAgency) {
+        DeleteOfferController.nameOfAgency = nameOfAgency;
+    }
+
+    public void getAllOffers(){
+        ObservableList<Offer> newList = FXCollections.observableArrayList();
+        Cursor<Offer> cursor = REPOSITORY.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
+        for(Offer offer:cursor) {
+            if(Objects.equals(nameOfAgency,offer.getNameOfAgency())) {
+                newList.add(offer);
+            }
+        }
+        offers = newList;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        getAllOffers();
         ArrayList<String> listOfOffers = new ArrayList<String>();
         for(Offer offer : offers){
             listOfOffers.add(offer.getNameOfOffer());
@@ -80,13 +101,13 @@ public class DeleteOfferController implements Initializable {
 
     @FXML
     public void handleEdit() throws Exception{
+        Stage primaryStage = (Stage) editButton.getScene().getWindow();
+        primaryStage.close();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("editOfferPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        Stage primaryStage = (Stage) editButton.getScene().getWindow();
-        primaryStage.close();
     }
 
     @FXML

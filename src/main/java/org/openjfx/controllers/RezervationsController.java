@@ -13,12 +13,18 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.dizitart.no2.objects.Cursor;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Booking;
+import org.openjfx.services.BookingService;
 
 import java.io.IOException;
 
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
+
 
 public class RezervationsController {
+    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private static Stage stage = new Stage();
     private static String nameOfAgency,username;
     private static ObservableList<Booking> bookings;
@@ -35,8 +41,17 @@ public class RezervationsController {
     @FXML
     public TableView<Booking> bookingTableView;
 
+    public void getAllBookings(){
+        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
+        bookings = FXCollections.observableArrayList();
+        for(Booking b : cursor) {
+            if(!b.getMessage().contains("deadline"))
+                bookings.add(b);
+        }
+    }
     @FXML
     private void initialize(){
+        getAllBookings();
         Platform.runLater(()-> {
             offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
             usernameColumn.setCellValueFactory(new PropertyValueFactory<>("clientUsername"));

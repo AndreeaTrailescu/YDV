@@ -51,6 +51,7 @@ public class RegisterControllerAgent {
             AddOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
             EditOfferController.setUsername(usernameField);
             EditOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
+            DeleteOfferController.setNameOfAgency(loggedInUser.getNameOfAgency());
             RezervationsController.setUsername(usernameField);
             RezervationsController.setNameOfAgency(loggedInUser.getNameOfAgency());
         } catch (IOException e) {

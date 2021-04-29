@@ -12,13 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.dizitart.no2.FindOptions;
+import org.dizitart.no2.SortOrder;
+import org.dizitart.no2.objects.Cursor;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Offer;
+import org.openjfx.services.OfferService;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class EditOfferController {
     private static ObservableList<Offer> offers;
+    private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
     private Stage primaryStage = AgencyPageController.getStage();
     private Stage secondStage = DialogEditController.getSecondStage();
     private Stage thirdStage = AddOfferController.getStage();
@@ -50,9 +57,20 @@ public class EditOfferController {
     @FXML
     private TextField searchTextField;
 
+    public void getAllOffers(){
+        ObservableList<Offer> newList = FXCollections.observableArrayList();
+        Cursor<Offer> cursor = REPOSITORY.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
+        for(Offer offer:cursor) {
+            if(Objects.equals(nameOfAgency,offer.getNameOfAgency())) {
+                newList.add(offer);
+            }
+        }
+        offers = newList;
+    }
 
     @FXML
     public void initialize() {
+        getAllOffers();
         Platform.runLater(() -> {
 
             offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
@@ -200,9 +218,5 @@ public class EditOfferController {
 
     public static void setNameOfAgency(String nameOfAgency) {
         EditOfferController.nameOfAgency = nameOfAgency;
-    }
-
-    public static void setOffers(ObservableList<Offer> offers) {
-        EditOfferController.offers = offers;
     }
 }
