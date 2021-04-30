@@ -11,6 +11,7 @@ import org.openjfx.services.UserService;
 import java.io.IOException;
 
 public class HomePageController {
+    private Stage anotherstage;
 
     @FXML
     private Button logoutButton;
@@ -47,8 +48,12 @@ public class HomePageController {
     @FXML
     public  void handleHistory() throws Exception{
         try {
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("historyBooking.fxml"));
-            Stage stage = (Stage) (agencyListButton.getScene().getWindow());
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("historyBooking.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) (bookListButton.getScene().getWindow());
+            anotherstage = (Stage) (bookListButton.getScene().getWindow());
+            HistoryBookingController controller = loader.getController();
+            controller.setStage(anotherstage);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

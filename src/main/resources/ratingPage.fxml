@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="125.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RatingController">
+   <children>
+      <Label layoutX="99.0" layoutY="21.0" text="Thanks for rating this offer!" />
+      <Button fx:id="saveButton" layoutX="233.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
+      <TextField fx:id="rating" layoutX="46.0" layoutY="69.0" promptText="0/10" />
+   </children>
+</AnchorPane>
