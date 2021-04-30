@@ -183,10 +183,8 @@ public class EditOfferController {
             DialogEditController controller = loader.getController();
             controller.setId(id);
             controller.setUsername(username);
-            System.out.println(username);
             controller.setNameOfAgency(nameOfAgency);
             controller.setOffer(offer);
-
             return controller.isOkClicked();
         } catch (Exception e) {
             System.out.println("eroare");

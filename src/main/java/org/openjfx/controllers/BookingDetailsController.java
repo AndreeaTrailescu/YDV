@@ -81,6 +81,25 @@ public class BookingDetailsController {
         stage.show();
     }
 
+    @FXML
+    public void handleReject() {
+        try {
+            Stage stage = (Stage) rejectButton.getScene().getWindow();
+            stage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("rejectBookingPage.fxml"));
+            Parent root = loader.load();
+            RejectBookingController controller = loader.getController();
+            controller.setSelectedBooking(selectedBooking);
+            controller.setNameOfAgency(nameOfAgency);
+            controller.setUsername(username);
+            controller.setBookings(bookings);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (IOException e){
+            System.out.println("Error");
+        }
+    }
+
     public void showOfferDetails(Booking booking) {
         Offer offer = OFFER_REPOSITORY.find(and(eq("nameOfOffer",booking.getNameOfOffer()),eq("nameOfAgency",booking.getNameOfAgency()))).firstOrDefault();
         clientUsername.setText(booking.getClientUsername());
