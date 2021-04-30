@@ -52,7 +52,7 @@ public class RejectBookingController {
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline"))
+            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
                 bookings.add(b);
         }
         try {
@@ -73,10 +73,12 @@ public class RejectBookingController {
     }
     @FXML
     public void handleSave(){
+        selectedBooking.setMessage("Rejected. "+rejectionReason.getText());
+        BOOKING_REPOSITORY.update(selectedBooking);
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline"))
+            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
                 bookings.add(b);
         }
         try {

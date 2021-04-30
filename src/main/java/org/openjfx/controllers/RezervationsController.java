@@ -45,7 +45,7 @@ public class RezervationsController {
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline"))
+            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
                 bookings.add(b);
         }
     }
