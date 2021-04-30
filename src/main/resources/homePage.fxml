@@ -17,7 +17,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button layoutX="65.0" layoutY="150.0" mnemonicParsing="false" text="Booking History List" textFill="#f5f5f7">
+        <Button fx:id="bookListButton" layoutX="65.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

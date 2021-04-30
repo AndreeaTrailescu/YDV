@@ -53,6 +53,7 @@ public class LoginController {
                     stage.setScene(new Scene(root));
                     stage.show();
                     OffersPageController.setClientUsername(usernameField.getText());
+                    HistoryBookingController.setUsername(usernameField.getText());
                 } else if (((String) role.getValue()).equals("Travel Agent")) {
                     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
                     Parent root = (Parent) loader.load();
@@ -81,6 +82,7 @@ public class LoginController {
                     reg.setPasswordField(passwordField);
                     reg.setRole(role);
                     OffersPageController.setClientUsername(usernameField.getText());
+                    HistoryBookingController.setUsername(usernameField.getText());
                 } else if (((String) role.getValue()).equals("Travel Agent")) {
                     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerAgent.fxml"));
                     Parent root = (Parent) loader.load();

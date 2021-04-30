@@ -19,8 +19,8 @@ public class BookingService {
         bookingRepository = database.getRepository(Booking.class);
     }
 
-    public static void addBooking(String id, String clientUsername, String nameOfAgency, String nameOfOffer, String numberOfPersons, String totalPrice, String checkInDate, String checkOutDate, String message) {
-        bookingRepository.insert(new Booking(id,clientUsername,nameOfAgency,nameOfOffer,numberOfPersons,totalPrice,checkInDate,checkOutDate,message));
+    public static void addBooking(String id, String clientUsername, String nameOfAgency, String nameOfOffer, String numberOfPersons, String totalPrice, String checkInDate, String checkOutDate, String message, String rating) {
+        bookingRepository.insert(new Booking(id,clientUsername,nameOfAgency,nameOfOffer,numberOfPersons,totalPrice,checkInDate,checkOutDate,message,rating));
     }
 
     public static ObjectRepository<Booking> getBookingRepository() {

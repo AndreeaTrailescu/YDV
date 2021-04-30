@@ -152,7 +152,7 @@ public class OfferDetailsController implements Initializable {
             String id = NitriteId.newId().toString();
             BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
                     checkInDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),checkOutDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),
-                    "Your booking hasn't been approved/rejected yet.");
+                    "Your booking hasn't been approved/rejected yet.","0.0");
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) makeBookingButton.getScene().getWindow();

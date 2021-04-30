@@ -43,4 +43,17 @@ public class HomePageController {
             System.out.println("Error");
         }
     }
+
+    @FXML
+    public  void handleHistory() throws Exception{
+        try {
+            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("historyBooking.fxml"));
+            Stage stage = (Stage) (agencyListButton.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="487.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.HistoryBookingController">
+   <children>
+      <TableView fx:id="bookingTableView" layoutX="46.0" layoutY="29.0" prefHeight="347.0" prefWidth="411.0" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="29.0">
+        <columns>
+          <TableColumn fx:id="offerNameColumn" prefWidth="72.39999008178711" text="Offer" />
+          <TableColumn fx:id="agencyColumn" prefWidth="94.79998779296875" text="Agency" />
+            <TableColumn fx:id="message" prefWidth="168.60003662109375" text="Message" />
+            <TableColumn fx:id="ratingTableColumn" prefWidth="76.199951171875" text="Rating" />
+        </columns>
+      </TableView>
+      <Button fx:id="travelAgenciesButton" layoutX="68.0" layoutY="410.0" mnemonicParsing="false" text="Travel Agencies List" />
+      <Button fx:id="logoutButton" layoutX="381.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+      <Button fx:id="closeButton" layoutX="252.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+   </children>
+</AnchorPane>
