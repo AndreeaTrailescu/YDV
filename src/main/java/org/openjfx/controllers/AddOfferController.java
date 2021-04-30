@@ -30,10 +30,7 @@ public class AddOfferController {
     private static String username,id;
     private static String nameOfAgency;
     private final ObjectRepository<User> REPOSITORY =UserService.getUserRepository();
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
-    private ObservableList<Offer> offers ;
-    private ObservableList<Booking> bookings;
-    private  static Stage stage = new Stage();
+    private static Stage stage = new Stage();
 
     @FXML
     private Button saveButton;
@@ -72,8 +69,6 @@ public class AddOfferController {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) (saveButton.getScene().getWindow());
-            AddOfferController controller = loader.getController();
-            controller.setOffers(offers);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -89,14 +84,21 @@ public class AddOfferController {
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
-            AgencyPageController controller = loader.getController();
-            controller.setUsername(username);
-            controller.setNameOfAgency(nameOfAgency);
         } catch (IOException e) {
             System.out.println("Error");
         }
     }
-
+    @FXML
+    public void handleDelete(){
+        try {
+            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("deleteOfferPage.fxml"));
+            Stage stage = (Stage) (deleteButton.getScene().getWindow());
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
     @FXML
     public void handleLogout() {
         try {
@@ -111,43 +113,19 @@ public class AddOfferController {
 
     @FXML
     public void handleEdit() throws Exception{
-        ObjectRepository<Offer> repo = OfferService.getOfferRepository();
-        ObservableList<Offer> newList = FXCollections.observableArrayList();
-        Cursor<Offer> cursor = repo.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
-        for(Offer offer:cursor) {
-            if(Objects.equals(nameOfAgency,offer.getNameOfAgency())) {
-                newList.add(offer);
-            }
-        }
-        offers = newList;
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("editOfferPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        EditOfferController controller = loader.getController();
-        controller.setUsername(username);
-        controller.setNameOfAgency(nameOfAgency);
-        controller.setOffers(offers);
         Stage primaryStage = (Stage) editButton.getScene().getWindow();
         primaryStage.close();
     }
 
     @FXML
     public void handleBookingList() throws IOException {
-        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
-        bookings = FXCollections.observableArrayList();
-        for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline"))
-                bookings.add(b);
-        }
-
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("bookingsPage.fxml"));
             Parent root = loader.load();
-            RezervationsController controller = loader.getController();
-            controller.setNameOfAgency(nameOfAgency);
-            controller.setBookings(bookings);
-            controller.setUsername(username);
             Stage bookList = (Stage) bookListButton.getScene().getWindow();
             bookList.close();
             Stage stage1 = new Stage();
@@ -156,23 +134,20 @@ public class AddOfferController {
 
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String username) {
+        AddOfferController.username = username;
     }
 
-    public void setId(String id) {
+    public static void setId(String id) {
         AddOfferController.id = id;
     }
 
-    public void setNameOfAgency(String nameOfAgency) {
-        this.nameOfAgency = nameOfAgency;
+    public static void setNameOfAgency(String nameOfAgency) {
+        AddOfferController.nameOfAgency = nameOfAgency;
     }
 
     public static Stage getStage() {
         return stage;
     }
 
-    public void setOffers(ObservableList<Offer> offers) {
-        this.offers = offers;
-    }
 }

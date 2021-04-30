@@ -20,7 +20,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button layoutX="116.0" layoutY="161.0" mnemonicParsing="false" text="Delete" textFill="#f5f5f7">
+        <Button fx:id="deleteButton" layoutX="116.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
