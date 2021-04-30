@@ -37,7 +37,7 @@
                 <Label fx:id="totalNumber" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
-        <Button fx:id="rejectButton" layoutX="85.0" layoutY="359.0" mnemonicParsing="false" text="Reject" textFill="#f5f5f7">
+        <Button fx:id="rejectButton" layoutX="85.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleReject" text="Reject" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
