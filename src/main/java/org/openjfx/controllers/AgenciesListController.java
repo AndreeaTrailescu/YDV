@@ -1,5 +1,6 @@
 package org.openjfx.controllers;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,6 +33,7 @@ public class AgenciesListController implements Initializable {
     private ObservableList<String> agencies = FXCollections.observableArrayList(listOfAgencies);
     private static String selectedAgency;
     private static Stage stage = new Stage();
+    private Stage anotherStage;
 
     @FXML
     private Button bookListButton;
@@ -59,10 +61,10 @@ public class AgenciesListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int ROW_HEIGHT=24;
-        agenciesList.maxHeightProperty().bind(Bindings.size(agencies).multiply(ROW_HEIGHT));
-        agenciesList.setItems(agencies);
-        TextFields.bindAutoCompletion(agencyName,agencies);
+            int ROW_HEIGHT = 24;
+            agenciesList.maxHeightProperty().bind(Bindings.size(agencies).multiply(ROW_HEIGHT));
+            agenciesList.setItems(agencies);
+            TextFields.bindAutoCompletion(agencyName, agencies);
     }
 
     @FXML
@@ -73,13 +75,29 @@ public class AgenciesListController implements Initializable {
             selectedAgency=(String)(agenciesList.getSelectionModel().getSelectedItem());
         try{
             OffersPageController.setSelectedAgency(selectedAgency);
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("offersPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
+            Parent root = loader.load();
+            OffersPageController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
             stage = (Stage) (offersButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+
+    @FXML
+    public void handleHistory() throws IOException {
+        Stage stage = (Stage) bookListButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("historyBooking.fxml"));
+        Parent root = loader.load();
+        HistoryBookingController controller = loader.getController();
+        controller.setStage(anotherStage);
+        stage = (Stage) bookListButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -92,5 +110,9 @@ public class AgenciesListController implements Initializable {
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+
+    public void setAnotherStage(Stage anotherStage) {
+        this.anotherStage = anotherStage;
     }
 }

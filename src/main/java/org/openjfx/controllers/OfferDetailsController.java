@@ -37,6 +37,7 @@ public class OfferDetailsController implements Initializable {
     private static String clientUsername;
     private Offer offerSelected;
     private Booking existingBooking;
+    private Stage anotherStage;
 
     @FXML
     private Button agencyListButton;
@@ -122,7 +123,10 @@ public class OfferDetailsController implements Initializable {
     @FXML
     public void handleAgencyList() {
         try{
-            Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            Parent root = loader.load();
+            AgenciesListController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
             Stage stage = (Stage) (agencyListButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
@@ -135,6 +139,8 @@ public class OfferDetailsController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
             Parent root = loader.load();
+            OffersPageController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -155,12 +161,27 @@ public class OfferDetailsController implements Initializable {
                     "Your booking hasn't been approved/rejected yet.","0");
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
             Parent root = loader.load();
+            OffersPageController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
             Stage stage = (Stage) makeBookingButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+
+    @FXML
+    public void handleHistory() throws IOException {
+        Stage stage = (Stage) bookListButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("historyBooking.fxml"));
+        Parent root = loader.load();
+        HistoryBookingController controller = loader.getController();
+        anotherStage = (Stage) bookListButton.getScene().getWindow();
+        controller.setStage(anotherStage);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -183,6 +204,10 @@ public class OfferDetailsController implements Initializable {
         nightsLabel.setText(offerSelected.getNights());
         clientsLabel.setText(offerSelected.getNoOfClients());
         priceLabel.setText(offerSelected.getPrice());
+    }
+
+    public void setAnotherStage(Stage anotherStage) {
+        this.anotherStage = anotherStage;
     }
 }
 

@@ -1,9 +1,6 @@
 package org.openjfx.controllers;
 
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.WritableDoubleValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,25 +10,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import org.apache.commons.lang3.time.DateUtils;
-import org.controlsfx.control.Rating;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Booking;
 import org.openjfx.services.BookingService;
-import org.w3c.dom.Text;
-
-import javax.swing.event.ChangeListener;
 import java.io.IOException;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
@@ -90,12 +80,12 @@ public class HistoryBookingController {
                         if(d2.compareTo(d1) > 0) {
                             row.setDisable(true);
                         } else {
-                            anotherStage.close();
                             try {
                                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ratingPage.fxml"));
                                 Parent root = loader.load();
                                 RatingController controller = loader.getController();
                                 controller.setAnotherStage(anotherStage);
+                                anotherStage.close();
                                 stage.setScene(new Scene(root));
                                 stage.show();
                             } catch (Exception ee) {
@@ -113,8 +103,29 @@ public class HistoryBookingController {
     }
 
     @FXML
-    public void handleClose() {
+    public void handleClose() throws IOException {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("homePage.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    @FXML
+    public void handleAgenciesList() throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) (travelAgenciesButton.getScene().getWindow());
+            AgenciesListController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
     }
 
     @FXML
@@ -131,11 +142,13 @@ public class HistoryBookingController {
 
     public void getAllBookings(){
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername",username));
-        bookings = FXCollections.observableArrayList();
+        ArrayList<Booking> list = new ArrayList<>();
         for(Booking b : cursor) {
             if(b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected"))
-                bookings.add(b);
+                list.add(b);
         }
+        Collections.reverse(list);
+        bookings = FXCollections.observableArrayList(list);
     }
 
     public static void setUsername(String username) {
@@ -146,7 +159,7 @@ public class HistoryBookingController {
         return selectedBooking;
     }
 
-    public void setStage(Stage astage) {
-        this.anotherStage = astage;
+    public void setStage(Stage anotherStage) {
+        this.anotherStage = anotherStage;
     }
 }

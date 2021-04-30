@@ -32,6 +32,7 @@ public class OffersPageController implements Initializable {
     private static String clientUsername;
     private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
     private static Stage stage = new Stage();
+    private Stage anotherStage;
 
     @FXML
     private Button agencyListButton;
@@ -92,7 +93,10 @@ public class OffersPageController implements Initializable {
                             .getSelectedItem();
                     AgenciesListController.getStage().close();
                     try {
-                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("offerDetailsPage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offerDetailsPage.fxml"));
+                        Parent root = loader.load();
+                        OfferDetailsController controller = loader.getController();
+                        controller.setAnotherStage(anotherStage);
                         stage.setScene(new Scene(root));
                         stage.show();
                     } catch (IOException e) {
@@ -106,13 +110,29 @@ public class OffersPageController implements Initializable {
     @FXML
     public void handleAgencyList() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
+            Parent root = loader.load();
+            AgenciesListController controller = loader.getController();
+            controller.setAnotherStage(anotherStage);
             Stage stage = (Stage) (agencyListButton.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+
+    @FXML
+    public void handleHistory() throws IOException {
+        Stage stage = (Stage) bookListButton.getScene().getWindow();
+        stage.close();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("historyBooking.fxml"));
+        Parent root = loader.load();
+        HistoryBookingController controller = loader.getController();
+        controller.setStage(anotherStage);
+        stage = (Stage) bookListButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
@@ -125,5 +145,9 @@ public class OffersPageController implements Initializable {
         } catch (IOException e) {
             System.out.println("Error");
         }
+    }
+
+    public void setAnotherStage(Stage anotherStage) {
+        this.anotherStage = anotherStage;
     }
 }

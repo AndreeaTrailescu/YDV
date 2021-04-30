@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DeleteOfferController">
+<GridPane alignment="CENTER" prefHeight="350.0" prefWidth="350.0" style="-fx-background-insets: 10; -fx-background-radius: 20; -fx-border-insets: 15;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.DeleteOfferController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -32,26 +32,41 @@
           </font>
       </Label>
       <TextField fx:id="offerName" GridPane.rowIndex="2" />
-      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.rowIndex="3">
+      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleBookingList" text="Reservation List" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleBookingList" text="Reservation List" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets />
-         </GridPane.margin></Button>
-      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add Offer" GridPane.rowIndex="4">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add Offer" textFill="WHITE" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets right="10.0" />
-         </GridPane.margin></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font>
       </Button>
       <Region prefHeight="200.0" prefWidth="200.0" />
    </children>
