@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="475.0" prefWidth="529.0" style="-fx-background-radius: 10; -fx-background-insets: 10; -fx-border-insets: 15;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.HistoryBookingController">
+   <children>
+      <TableView fx:id="bookingTableView" layoutX="39.0" layoutY="39.0" prefHeight="359.0" prefWidth="453.0" style="-fx-background-color: rgb(42,80,88); -fx-background-radius: 10;" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="26.0">
+        <columns>
+          <TableColumn fx:id="offerNameColumn" prefWidth="72.39999008178711" text="Offer" />
+          <TableColumn fx:id="agencyColumn" prefWidth="94.79998779296875" text="Agency" />
+            <TableColumn fx:id="message" prefWidth="211.80001831054688" text="Message" />
+            <TableColumn fx:id="ratingTableColumn" prefWidth="60.199981689453125" text="Rating" />
+        </columns>
+      </TableView>
+      <Button fx:id="travelAgenciesButton" layoutX="44.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleAgenciesList" text="Travel Agencies List" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="logoutButton" layoutX="407.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="closeButton" layoutX="282.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

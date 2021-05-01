@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RejectBookingController">
+<GridPane alignment="CENTER" prefHeight="200.0" prefWidth="400.0" style="-fx-background-insets: 10; -fx-background-radius: 30; -fx-border-insets: 15;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RejectBookingController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -15,15 +15,21 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleClose" text="Close" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+        <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets left="20.0" />
             </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font>
         </Button>
-        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="Save" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="Save" textFill="#f5f5f5" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets right="20.0" />
             </GridPane.margin>
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font>
         </Button>
         <Label alignment="CENTER" contentDisplay="CENTER" text="Give a rejection reason:" textAlignment="CENTER" GridPane.halignment="CENTER">
             <font>

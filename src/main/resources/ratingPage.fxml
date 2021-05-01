@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="125.0" prefWidth="341.0" style="-fx-background-insets: 10; -fx-background-radius: 20; -fx-border-insets: 15;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RatingController">
+   <children>
+      <Label layoutX="69.0" layoutY="23.0" text="Thanks for rating this offer!" />
+      <Button fx:id="saveButton" layoutX="233.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleSave" text="Save" textFill="#ffffff">
+         <font>
+            <Font name="DejaVu Serif Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="rating" layoutX="46.0" layoutY="69.0" promptText="0/10" />
+   </children>
+</AnchorPane>

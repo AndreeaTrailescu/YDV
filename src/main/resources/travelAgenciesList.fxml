@@ -26,7 +26,7 @@
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font>
        </Button>
-      <Button fx:id="bookListButton" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="169.0" text="Booking History List" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Button fx:id="bookListButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleHistory" prefHeight="26.0" prefWidth="169.0" text="Booking History List" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>

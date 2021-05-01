@@ -23,7 +23,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>

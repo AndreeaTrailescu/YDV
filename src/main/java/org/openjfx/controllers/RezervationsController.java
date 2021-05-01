@@ -74,7 +74,7 @@ public class RezervationsController {
                             stage.setScene(new Scene(root));
                             stage.show();
                         } catch (Exception ee) {
-                            System.out.println("eroareeeee");
+                            System.out.println("eroare");
                         }
                     }
                 });
