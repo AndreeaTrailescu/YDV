@@ -76,7 +76,6 @@ public class HistoryBookingController {
                     if (event.getClickCount() == 2 && !row.isEmpty()) {
                         selectedBooking = bookingTableView.getSelectionModel().getSelectedItem();
                         d2 = formatter.parse(selectedBooking.getCheckOutDate());
-                        System.out.println(d1.toString()+" " +d2.toString());
                         if(d2.compareTo(d1) > 0) {
                             row.setDisable(true);
                         } else {
