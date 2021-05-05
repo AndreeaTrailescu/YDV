@@ -20,6 +20,7 @@ class OfferServiceTest {
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
+        FileSystemService.initOffersDirectory();
         FileUtils.cleanDirectory(FileSystemService.getOffersHomeFolder().toFile());
         OfferService.initDatabase();
     }
