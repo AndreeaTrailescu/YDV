@@ -39,7 +39,7 @@ public class RegisterControllerAgent {
     @FXML
     public void handleRegisterAgent() throws Exception{
         try {
-            UserService.addUser(usernameField, passwordField, role, name.getText(), eMail.getText(), phoneNumber.getText(), nameOfAgency.getText());
+            UserService.addUser2(usernameField, passwordField, role, name.getText(), eMail.getText(), phoneNumber.getText(), nameOfAgency.getText());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) (saveButton.getScene().getWindow());

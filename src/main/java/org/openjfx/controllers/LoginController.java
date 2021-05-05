@@ -85,8 +85,8 @@ public class LoginController {
                     reg.setRole(role);
                     OffersPageController.setClientUsername(usernameField.getText());
                     HistoryBookingController.setUsername(usernameField.getText());
-                    User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
-                    HomePageController.setUsername(loggedInUser.getUsername());
+                    /*User loggedInUser=REPOSITORY.find(eq("username",usernameField.getText())).firstOrDefault();
+                    HomePageController.setUsername(loggedInUser.getUsername());*/
                 } else if (((String) role.getValue()).equals("Travel Agent")) {
                     FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("registerAgent.fxml"));
                     Parent root = (Parent) loader.load();

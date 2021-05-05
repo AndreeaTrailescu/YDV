@@ -31,7 +31,7 @@ public class RegisterControllerClient {
     @FXML
     public void handleRegisterClient() throws Exception {
         try {
-            UserService.addUser(usernameField, passwordField, role, name.getText(), eMail.getText(), phoneNumber.getText());
+            UserService.addUser1(usernameField, passwordField, role, name.getText(), eMail.getText(), phoneNumber.getText());
             Parent root= FXMLLoader.load(getClass().getClassLoader().getResource("homePage.fxml"));
             Stage stage = (Stage) (saveButton.getScene().getWindow());
             stage.setScene(new Scene(root));
