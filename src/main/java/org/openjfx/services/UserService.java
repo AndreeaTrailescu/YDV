@@ -8,6 +8,7 @@ import org.openjfx.model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.openjfx.services.FileSystemService.getPathToFile;
@@ -20,6 +21,7 @@ public class UserService {
     }
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("registration-database.db").toFile())
                 .openOrCreate("test", "test");
@@ -65,5 +67,9 @@ public class UserService {
             throw new IllegalStateException("SHA-512 does not exist!");
         }
         return md;
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 }
