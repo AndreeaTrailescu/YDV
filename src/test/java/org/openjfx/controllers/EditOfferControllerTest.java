@@ -2,7 +2,6 @@ package org.openjfx.controllers;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
-import org.openjfx.model.Offer;
 import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
 

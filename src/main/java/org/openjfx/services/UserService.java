@@ -78,7 +78,4 @@ public class UserService {
         return userRepository.find().toList();
     }
 
-    public static Nitrite getDatabase() {
-        return database;
-    }
 }
