@@ -32,12 +32,12 @@ public class FileSystemService {
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
 
-        /*Path bookingsHomePath = FileSystemService.BOOKINGS_HOME_PATH;
+        Path bookingsHomePath = FileSystemService.BOOKINGS_HOME_PATH;
         if (!Files.exists(bookingsHomePath))
-            bookingsHomePath.toFile().mkdirs();*/
+            bookingsHomePath.toFile().mkdirs();
     }
 
-    static void initOffersDirectory(){
+    public static void initOffersDirectory(){
         Path offersHomePath = FileSystemService.getOffersHomeFolder();
         if (!Files.exists(offersHomePath))
             offersHomePath.toFile().mkdirs();

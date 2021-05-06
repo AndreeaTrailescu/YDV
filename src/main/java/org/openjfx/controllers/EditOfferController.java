@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class EditOfferController {
     private static ObservableList<Offer> offers;
-    private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
+    private static ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
     private Stage primaryStage = AgencyPageController.getStage();
     private Stage secondStage = DialogEditController.getSecondStage();
     private Stage thirdStage = AddOfferController.getStage();
@@ -57,7 +57,7 @@ public class EditOfferController {
     @FXML
     private TextField searchTextField;
 
-    public void getAllOffers(){
+    public static void getAllOffers(){
         ObservableList<Offer> newList = FXCollections.observableArrayList();
         Cursor<Offer> cursor = REPOSITORY.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
         for(Offer offer:cursor) {
@@ -192,7 +192,7 @@ public class EditOfferController {
         }
     }
 
-    private void showOfferDetails(Offer offer) {
+    public void showOfferDetails(Offer offer) {
         if(offer != null) {
             destinationLabel.setText(offer.getDestination());
             hotelLabel.setText(offer.getHotelName());
@@ -208,6 +208,10 @@ public class EditOfferController {
             clientsLabel.setText("");
             priceLabel.setText("");
         }
+    }
+
+    public static ObservableList<Offer> getOffers() {
+        return offers;
     }
 
     public static void setUsername(String username) {
