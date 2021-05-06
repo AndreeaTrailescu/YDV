@@ -41,6 +41,7 @@ class HistoryBookingControllerTest {
         BookingService.addBooking("3","user2","agency1","offer1","8","1000","01-01-2000","01-02-2000","Accepted","10");
         BookingService.addBooking("4","user2","agency1","offer2","5","2000","01-01-2000","01-02-2000","Rejected","10");
         BookingService.addBooking("5","user1","agency3","offer3","2","5000","01-01-2000","01-02-2000","Your booking hasn't been approved/rejected yet.","10");
+        BookingService.addBooking("6","user1","agency1","offer2","2","5000","01-01-2000","01-02-2000","...","10");
 
         HistoryBookingController.setUsername("user1");
         HistoryBookingController.getAllBookings();
