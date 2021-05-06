@@ -70,6 +70,10 @@ public class UserService {
         return md;
     }
 
+    public static Nitrite getDatabase() {
+        return database;
+    }
+
     public static List<User> getAllUsers() {
         return userRepository.find().toList();
     }
