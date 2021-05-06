@@ -32,7 +32,7 @@ public class AgenciesListController implements Initializable {
     private static ArrayList<String> listOfAgencies = new ArrayList<String>();
     private ObservableList<String> agencies = FXCollections.observableArrayList(listOfAgencies);
     private static String selectedAgency;
-    private static Stage stage = new Stage();
+    private Stage stage = new Stage();
     private Stage anotherStage;
 
     @FXML
@@ -55,7 +55,11 @@ public class AgenciesListController implements Initializable {
         }
     }
 
-    public static Stage getStage() {
+    public static ArrayList<String> getListOfAgencies() {
+        return listOfAgencies;
+    }
+
+    public Stage getStage() {
         return stage;
     }
 

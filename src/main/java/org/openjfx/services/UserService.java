@@ -15,6 +15,7 @@ import static org.openjfx.services.FileSystemService.getPathToFile;
 
 public class UserService {
     private static ObjectRepository<User> userRepository;
+    private static Nitrite database;
 
     public static ObjectRepository<User> getUserRepository() {
         return userRepository;
@@ -22,7 +23,7 @@ public class UserService {
 
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("registration-database.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -71,5 +72,9 @@ public class UserService {
 
     public static List<User> getAllUsers() {
         return userRepository.find().toList();
+    }
+
+    public static Nitrite getDatabase() {
+        return database;
     }
 }
