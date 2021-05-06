@@ -91,7 +91,6 @@ public class OffersPageController implements Initializable {
                 if (click.getClickCount() == 2) {
                     selectedOffer = (String) offersList.getSelectionModel()
                             .getSelectedItem();
-                    AgenciesListController.getStage().close();
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offerDetailsPage.fxml"));
                         Parent root = loader.load();

@@ -77,4 +77,8 @@ public class UserService {
     public static List<User> getAllUsers() {
         return userRepository.find().toList();
     }
+
+    public static Nitrite getDatabase() {
+        return database;
+    }
 }
