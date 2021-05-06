@@ -5,6 +5,8 @@ import org.dizitart.no2.objects.ObjectRepository;
 import org.openjfx.model.Booking;
 import org.openjfx.model.Offer;
 
+import java.util.List;
+
 import static org.openjfx.services.FileSystemService.getPathToBooking;
 import static org.openjfx.services.FileSystemService.getPathToOffer;
 
@@ -31,5 +33,9 @@ public class BookingService {
 
     public static ObjectRepository<Booking> getBookingRepository() {
         return bookingRepository;
+    }
+
+    public static List<Booking> getAllBookings() {
+        return bookingRepository.find().toList();
     }
 }
