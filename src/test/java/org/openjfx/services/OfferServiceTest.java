@@ -35,7 +35,6 @@ class OfferServiceTest {
     void testDatabaseIsInitializedAndNoOfferIsPersisted() {
         assertThat(OfferService.getAllOffers()).isNotNull();
         assertThat(OfferService.getAllOffers()).isEmpty();
-
     }
 
     @Test
