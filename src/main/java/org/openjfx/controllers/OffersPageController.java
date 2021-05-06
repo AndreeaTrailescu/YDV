@@ -92,6 +92,8 @@ public class OffersPageController implements Initializable {
                     selectedOffer = (String) offersList.getSelectionModel()
                             .getSelectedItem();
                     try {
+                        Stage offersPage = (Stage) offersList.getScene().getWindow();
+                        offersPage.close();
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offerDetailsPage.fxml"));
                         Parent root = loader.load();
                         OfferDetailsController controller = loader.getController();
