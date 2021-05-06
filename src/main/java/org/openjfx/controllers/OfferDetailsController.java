@@ -209,5 +209,21 @@ public class OfferDetailsController implements Initializable {
     public void setAnotherStage(Stage anotherStage) {
         this.anotherStage = anotherStage;
     }
+
+    public static void setSelectedAgency(String selectedAgency) {
+        OfferDetailsController.selectedAgency = selectedAgency;
+    }
+
+    public static void setSelectedOffer(String selectedOffer) {
+        OfferDetailsController.selectedOffer = selectedOffer;
+    }
+
+    public static String getSelectedAgency() {
+        return selectedAgency;
+    }
+
+    public static String getSelectedOffer() {
+        return selectedOffer;
+    }
 }
 
