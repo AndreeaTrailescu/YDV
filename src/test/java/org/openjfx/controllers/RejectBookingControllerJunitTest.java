@@ -27,6 +27,7 @@ class RejectBookingControllerJunitTest {
     @DisplayName("The message of the selected booking from a list with one booking is changed")
     void testMessageOfTheBookingFromTheListWithOneBookingIsChanged() {
         BookingService.addBooking("1","user","agency","offer","2","500","05-07-2021","10-07-2021","Your booking hasn't been approved/rejected yet.","0");
+        BookingService.addBooking("2","user","agency","offer","2","500","05-07-2021","10-07-2021","...","0");
         RejectBookingController.setNameOfAgency("agency");
         RejectBookingController.getAllBookings();
         assertThat(RejectBookingController.getBookings()).isNotNull();
