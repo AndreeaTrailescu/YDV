@@ -24,7 +24,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class DeleteOfferDetailsController implements Initializable {
     private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
-    private static String nameOfAgency = AgencyPageController.getNameOfAgency();
+    private static String nameOfAgency = DeleteOfferController.getNameOfAgency();
     private static String nameOfOffer ;
     private Offer offerSelected;
 
@@ -52,6 +52,18 @@ public class DeleteOfferDetailsController implements Initializable {
 
     public static void setNameOfOffer(String nameOfOffer) {
         DeleteOfferDetailsController.nameOfOffer = nameOfOffer;
+    }
+
+    public static void setNameOfAgency(String nameOfAgency) {
+        DeleteOfferDetailsController.nameOfAgency = nameOfAgency;
+    }
+
+    public static String getNameOfAgency() {
+        return nameOfAgency;
+    }
+
+    public static String getNameOfOffer() {
+        return nameOfOffer;
     }
 
     @Override

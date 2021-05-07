@@ -49,6 +49,10 @@ public class DeleteOfferController implements Initializable {
         DeleteOfferController.nameOfAgency = nameOfAgency;
     }
 
+    public static String getNameOfAgency() {
+        return nameOfAgency;
+    }
+
     public static ArrayList<String> getListOfOffers() {
         return listOfOffers;
     }
