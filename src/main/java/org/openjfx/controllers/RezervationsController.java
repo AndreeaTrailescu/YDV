@@ -42,6 +42,7 @@ public class RezervationsController {
     public TableView<Booking> bookingTableView;
 
     public static void getAllBookings(){
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {
