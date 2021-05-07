@@ -21,7 +21,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 public class RejectBookingController {
     private static String nameOfAgency, username;
     private static Booking selectedBooking;
-    private static final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private static ObservableList<Booking> bookings ;
 
     @FXML
@@ -47,7 +47,12 @@ public class RejectBookingController {
         RejectBookingController.bookings = bookings;
     }
 
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
+    }
+
     public static void getAllBookings(){
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {

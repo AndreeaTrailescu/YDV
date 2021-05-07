@@ -8,9 +8,6 @@ import org.openjfx.services.BookingService;
 import org.openjfx.services.FileSystemService;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.dizitart.no2.objects.filters.ObjectFilters.and;
-import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RejectBookingControllerJunitTest {
     @BeforeEach
@@ -30,13 +27,13 @@ class RejectBookingControllerJunitTest {
     @DisplayName("The message of the selected booking from a list with one booking is changed")
     void testMessageOfTheBookingFromTheListWithOneBookingIsChanged() {
         BookingService.addBooking("1","user","agency","offer","2","500","05-07-2021","10-07-2021","Your booking hasn't been approved/rejected yet.","0");
-        RezervationsController.setNameOfAgency("agency");
-        RezervationsController.getAllBookings();
-        assertThat(RezervationsController.getBookings()).isNotNull();
-        assertThat(RezervationsController.getBookings()).size().isEqualTo(1);
+        RejectBookingController.setNameOfAgency("agency");
+        RejectBookingController.getAllBookings();
+        assertThat(RejectBookingController.getBookings()).isNotNull();
+        assertThat(RejectBookingController.getBookings()).size().isEqualTo(1);
         ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
 
-        Booking booking = RezervationsController.getBookings().get(0);
+        Booking booking = RejectBookingController.getBookings().get(0);
         assertThat(booking.getMessage()).isEqualTo("Your booking hasn't been approved/rejected yet.");
         booking.setMessage("Rejected. " );
         BOOKING_REPOSITORY.update(booking);
@@ -48,13 +45,13 @@ class RejectBookingControllerJunitTest {
     void testMessageOfTheFirstBookingOfTheListIsChanged() {
         BookingService.addBooking("1","user","agency","offer","2","500","05-07-2021","10-07-2021","Your booking hasn't been approved/rejected yet.","0");
         BookingService.addBooking("2","user","agency","offer2","3","600","05-08-2021","10-08-2021","Your booking hasn't been approved/rejected yet.","0");
-        RezervationsController.setNameOfAgency("agency");
-        RezervationsController.getAllBookings();
-        assertThat(RezervationsController.getBookings()).isNotNull();
-        assertThat(RezervationsController.getBookings()).size().isEqualTo(2);
+        RejectBookingController.setNameOfAgency("agency");
+        RejectBookingController.getAllBookings();
+        assertThat(RejectBookingController.getBookings()).isNotNull();
+        assertThat(RejectBookingController.getBookings()).size().isEqualTo(2);
         ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
 
-        Booking booking = RezervationsController.getBookings().get(0);
+        Booking booking = RejectBookingController.getBookings().get(0);
         assertThat(booking.getMessage()).isEqualTo("Your booking hasn't been approved/rejected yet.");
         booking.setMessage("Rejected. There are not enough vacancies left." );
         BOOKING_REPOSITORY.update(booking);
@@ -68,13 +65,13 @@ class RejectBookingControllerJunitTest {
         BookingService.addBooking("2","user","agency","offer2","3","600","05-08-2021","10-08-2021","Your booking hasn't been approved/rejected yet.","0");
         BookingService.addBooking("3","user","agency","offer3","2","500","05-07-2021","10-07-2021","Your booking hasn't been approved/rejected yet.","0");
         BookingService.addBooking("4","user","agency","offer4","3","600","05-08-2021","10-08-2021","Your booking hasn't been approved/rejected yet.","0");
-        RezervationsController.setNameOfAgency("agency");
-        RezervationsController.getAllBookings();
-        assertThat(RezervationsController.getBookings()).isNotNull();
-        assertThat(RezervationsController.getBookings()).size().isEqualTo(4);
+        RejectBookingController.setNameOfAgency("agency");
+        RejectBookingController.getAllBookings();
+        assertThat(RejectBookingController.getBookings()).isNotNull();
+        assertThat(RejectBookingController.getBookings()).size().isEqualTo(4);
         ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
 
-        Booking booking = RezervationsController.getBookings().get(3);
+        Booking booking = RejectBookingController.getBookings().get(3);
         assertThat(booking.getMessage()).isEqualTo("Your booking hasn't been approved/rejected yet.");
         booking.setMessage("Rejected." );
         BOOKING_REPOSITORY.update(booking);
@@ -89,13 +86,13 @@ class RejectBookingControllerJunitTest {
         BookingService.addBooking("3","user","agency","offer3","2","500","05-07-2021","10-07-2021","Your booking hasn't been approved/rejected yet.","0");
         BookingService.addBooking("4","user","agency","offer4","3","600","05-08-2021","10-08-2021","Your booking hasn't been approved/rejected yet.","0");
         BookingService.addBooking("5","user","agency","offer5","3","600","05-08-2021","10-08-2021","Your booking hasn't been approved/rejected yet.","0");
-        RezervationsController.setNameOfAgency("agency");
-        RezervationsController.getAllBookings();
-        assertThat(RezervationsController.getBookings()).isNotNull();
-        assertThat(RezervationsController.getBookings()).size().isEqualTo(5);
+        RejectBookingController.setNameOfAgency("agency");
+        RejectBookingController.getAllBookings();
+        assertThat(RejectBookingController.getBookings()).isNotNull();
+        assertThat(RejectBookingController.getBookings()).size().isEqualTo(5);
         ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
 
-        Booking booking = RezervationsController.getBookings().get(2);
+        Booking booking = RejectBookingController.getBookings().get(2);
         assertThat(booking.getMessage()).isEqualTo("Your booking hasn't been approved/rejected yet.");
         booking.setMessage("Rejected." );
         BOOKING_REPOSITORY.update(booking);
