@@ -19,7 +19,6 @@ public class App extends Application {
 
 
     public void start(Stage stage) throws Exception {
-        initDirectory();
         UserService.initDatabase();
         OfferService.initDatabase();
         BookingService.initDatabase();
@@ -27,20 +26,6 @@ public class App extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-
-        Path offersHomePath = FileSystemService.OFFERS_HOME_PATH;
-        if (!Files.exists(offersHomePath))
-            offersHomePath.toFile().mkdirs();
-
-        Path bookingsHomePath = FileSystemService.BOOKINGS_HOME_PATH;
-        if (!Files.exists(bookingsHomePath))
-            bookingsHomePath.toFile().mkdirs();
     }
 
     public static void main(String[] args) {

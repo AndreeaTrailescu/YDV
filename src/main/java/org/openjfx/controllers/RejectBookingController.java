@@ -19,10 +19,10 @@ import java.io.IOException;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class RejectBookingController {
-    private String nameOfAgency, username;
-    private Booking selectedBooking;
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
-    private ObservableList<Booking> bookings ;
+    private static String nameOfAgency, username;
+    private static Booking selectedBooking;
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObservableList<Booking> bookings ;
 
     @FXML
     private Button closeButton;
@@ -31,30 +31,39 @@ public class RejectBookingController {
     @FXML
     private TextField rejectionReason;
 
-    public void setNameOfAgency(String nameOfAgency) {
-        this.nameOfAgency = nameOfAgency;
+    public static void setNameOfAgency(String nameOfAgency) {
+        RejectBookingController.nameOfAgency = nameOfAgency;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setUsername(String username) {
+        RejectBookingController.username = username;
     }
 
-    public void setSelectedBooking(Booking selectedBooking) {
-        this.selectedBooking = selectedBooking;
+    public static void setSelectedBooking(Booking selectedBooking) {
+        RejectBookingController.selectedBooking = selectedBooking;
     }
 
-    public void setBookings(ObservableList<Booking> bookings) {
-        this.bookings = bookings;
+    public static void setBookings(ObservableList<Booking> bookings) {
+        RejectBookingController.bookings = bookings;
+    }
+
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
+    }
+
+    public static void getAllBookings(){
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
+        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
+        bookings = FXCollections.observableArrayList();
+        for(Booking b : cursor) {
+            if(b.getMessage().contains("hasn't"))
+                bookings.add(b);
+        }
     }
 
     @FXML
     public void handleClose(){
-        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
-        bookings = FXCollections.observableArrayList();
-        for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
-                bookings.add(b);
-        }
+        getAllBookings();
         try {
             Stage stage = (Stage) closeButton.getScene().getWindow();
             stage.close();
@@ -71,16 +80,12 @@ public class RejectBookingController {
             System.out.println("Error");
         }
     }
+
     @FXML
     public void handleSave(){
-        selectedBooking.setMessage("Rejected. "+rejectionReason.getText());
+        selectedBooking.setMessage("Rejected. " + rejectionReason.getText());
         BOOKING_REPOSITORY.update(selectedBooking);
-        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
-        bookings = FXCollections.observableArrayList();
-        for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
-                bookings.add(b);
-        }
+        getAllBookings();
         try {
             Stage stage = (Stage) saveButton.getScene().getWindow();
             stage.close();

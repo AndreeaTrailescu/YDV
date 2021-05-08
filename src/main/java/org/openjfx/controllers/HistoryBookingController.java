@@ -27,10 +27,10 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class HistoryBookingController {
     private static String username;
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
     private static ObservableList<Booking> bookings;
     private static Booking selectedBooking;
-    private static Stage stage = new Stage();
+    private Stage stage = new Stage();
     private Stage anotherStage;
 
     @FXML
@@ -139,15 +139,19 @@ public class HistoryBookingController {
         }
     }
 
-    public void getAllBookings(){
+    public static void getAllBookings(){
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername",username));
         ArrayList<Booking> list = new ArrayList<>();
         for(Booking b : cursor) {
-            if(b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected"))
+            if(b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected") || b.getMessage().contains("hasn't"))
                 list.add(b);
         }
         Collections.reverse(list);
         bookings = FXCollections.observableArrayList(list);
+    }
+
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
     }
 
     public static void setUsername(String username) {

@@ -27,8 +27,7 @@ import static org.dizitart.no2.FindOptions.sort;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AgenciesListController implements Initializable {
-    private static final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
-    private static Cursor<User> agents = REPOSITORY.find(eq("role","Travel Agent"),sort("nameOfAgency", SortOrder.Ascending));
+    private static ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
     private static ArrayList<String> listOfAgencies = new ArrayList<String>();
     private ObservableList<String> agencies = FXCollections.observableArrayList(listOfAgencies);
     private static String selectedAgency;
@@ -47,6 +46,9 @@ public class AgenciesListController implements Initializable {
     private TextField agencyName;
 
     public static void getAllAgencies(){
+        REPOSITORY = UserService.getUserRepository();
+        Cursor<User> agents = REPOSITORY.find(eq("role","Travel Agent"),sort("nameOfAgency", SortOrder.Ascending));
+        listOfAgencies.clear();
         for(User agent : agents){
             String agencyName= agent.getNameOfAgency();
             if(!listOfAgencies.contains(agencyName)){
@@ -55,8 +57,8 @@ public class AgenciesListController implements Initializable {
         }
     }
 
-    public Stage getStage() {
-        return stage;
+    public static ArrayList<String> getListOfAgencies() {
+        return listOfAgencies;
     }
 
     @Override

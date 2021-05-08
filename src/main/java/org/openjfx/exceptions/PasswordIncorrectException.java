@@ -8,8 +8,4 @@ public class PasswordIncorrectException extends Exception {
         super(String.format("Username already exists or the password entered is incorrect!"));
         this.password = password;
     }
-
-    public String getPassword() {
-        return password;
-    }
 }

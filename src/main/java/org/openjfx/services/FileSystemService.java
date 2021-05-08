@@ -1,24 +1,52 @@
 package org.openjfx.services;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileSystemService {
-    private static final String APPLICATION_FOLDER = ".registration-database";
-    private static final String OFFERS_FOLDER =".offers-database";
-    private static final String BOOKINGS_FOLDER =".bookings-database";
+    public static String APPLICATION_FOLDER = ".registration-database";
+    public static String OFFERS_FOLDER =".offers-database";
+    public static String BOOKINGS_FOLDER =".bookings-database";
     private static final String USER_FOLDER = System.getProperty("user.home");
-    public static final Path APPLICATION_HOME_PATH = Paths.get(USER_FOLDER, APPLICATION_FOLDER);
-    public static final Path OFFERS_HOME_PATH = Paths.get(USER_FOLDER, OFFERS_FOLDER);
-    public static final Path BOOKINGS_HOME_PATH = Paths.get(USER_FOLDER, BOOKINGS_FOLDER);
 
     public static Path getPathToFile(String... path) {
-        return APPLICATION_HOME_PATH.resolve(Paths.get(".", path));
+        return getApplicationHomeFolder().resolve(Paths.get(".", path));
     }
+
     public static Path getPathToOffer(String... path) {
-        return OFFERS_HOME_PATH.resolve(Paths.get(".", path));
+        return getOffersHomeFolder().resolve(Paths.get(".", path));
     }
+
+    public static Path getApplicationHomeFolder() {
+        return Paths.get(USER_FOLDER, APPLICATION_FOLDER);
+    }
+
+    public static Path getOffersHomeFolder(){
+        return Paths.get(USER_FOLDER,OFFERS_FOLDER);
+    }
+
+    public static Path getBookingsHomeFolder() { return Paths.get(USER_FOLDER,BOOKINGS_FOLDER); }
+
+    public static void initDirectory() {
+        Path applicationHomePath = FileSystemService.getApplicationHomeFolder();
+        if (!Files.exists(applicationHomePath))
+            applicationHomePath.toFile().mkdirs();
+    }
+
+    public static void initBookingDirectory() {
+        Path bookingsHomePath = FileSystemService.getBookingsHomeFolder();
+        if (!Files.exists(bookingsHomePath))
+            bookingsHomePath.toFile().mkdirs();
+    }
+
+    public static void initOffersDirectory(){
+        Path offersHomePath = FileSystemService.getOffersHomeFolder();
+        if (!Files.exists(offersHomePath))
+            offersHomePath.toFile().mkdirs();
+    }
+
     public static Path getPathToBooking(String... path) {
-        return BOOKINGS_HOME_PATH.resolve(Paths.get(".", path));
+        return getBookingsHomeFolder().resolve(Paths.get(".", path));
     }
 }

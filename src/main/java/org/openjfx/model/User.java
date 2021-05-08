@@ -60,6 +60,18 @@ public class User {
         return nameOfAgency;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

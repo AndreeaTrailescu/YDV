@@ -25,11 +25,12 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.and;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AcceptController {
-    private String date, nameOfAgency, username;
-    private Booking selectedBooking;
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
-    private final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
-    private ObservableList<Booking> bookings ;
+    private String date;
+    private static String nameOfAgency, username;
+    private static Booking selectedBooking;
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
+    private static ObservableList<Booking> bookings ;
 
     @FXML
     private DatePicker deadlineDate;
@@ -58,12 +59,7 @@ public class AcceptController {
         updateNumberOfClients(nameOfOffer);
         BOOKING_REPOSITORY.update(selectedBooking);
 
-        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
-        bookings = FXCollections.observableArrayList();
-        for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
-                bookings.add(b);
-        }
+        getAllBookings();
 
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
@@ -79,12 +75,7 @@ public class AcceptController {
 
     @FXML
     public void handleClose() throws IOException {
-        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
-        bookings = FXCollections.observableArrayList();
-        for(Booking b : cursor) {
-            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
-                bookings.add(b);
-        }
+        getAllBookings();
 
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
@@ -99,25 +90,39 @@ public class AcceptController {
         stage.show();
     }
 
-    public void updateNumberOfClients(String nameOfOffer) {
+    public static void updateNumberOfClients(String nameOfOffer) {
         Offer offer = OFFER_REPOSITORY.find(and(eq("nameOfOffer",nameOfOffer),eq("nameOfAgency",nameOfAgency))).firstOrDefault();
         offer.setNoOfClients(String.valueOf(Integer.parseInt(offer.getNoOfClients()) - Integer.parseInt(selectedBooking.getNumberOfPersons())));
         OFFER_REPOSITORY.update(offer);
     }
 
-    public void setSelectedBooking(Booking selectedBooking) {
-        this.selectedBooking = selectedBooking;
+    public static void getAllBookings() {
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
+        Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
+        bookings = FXCollections.observableArrayList();
+        for(Booking b : cursor) {
+            if(!b.getMessage().contains("deadline") && b.getMessage().contains("hasn't"))
+                bookings.add(b);
+        }
     }
 
-    public void setNameOfAgency(String nameOfAgency) {
-        this.nameOfAgency = nameOfAgency;
+    public static void setSelectedBooking(Booking selectedBooking) {
+        AcceptController.selectedBooking = selectedBooking;
     }
 
-    public void setBookings(ObservableList<Booking> bookings) {
-        this.bookings = FXCollections.observableArrayList(bookings);
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static void setNameOfAgency(String nameOfAgency) {
+        AcceptController.nameOfAgency = nameOfAgency;
+    }
+
+    public static void setBookings(ObservableList<Booking> bookings) {
+        AcceptController.bookings = bookings;
+    }
+
+    public static void setUsername(String username) {
+        AcceptController.username = username;
     }
 }

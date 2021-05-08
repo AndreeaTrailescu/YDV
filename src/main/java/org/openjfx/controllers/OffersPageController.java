@@ -30,8 +30,8 @@ public class OffersPageController implements Initializable {
     private static String selectedAgency;
     private static String selectedOffer;
     private static String clientUsername;
-    private static final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
-    private static Stage stage = new Stage();
+    private static ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
+    private ArrayList<String> listOfOffers = new ArrayList<String>();
     private Stage anotherStage;
 
     @FXML
@@ -67,17 +67,22 @@ public class OffersPageController implements Initializable {
         OffersPageController.clientUsername = clientUsername;
     }
 
-    public static Stage getStage() {
-        return stage;
+    public ArrayList<String> getListOfOffers() {
+        return listOfOffers;
+    }
+
+    public void getAllOffers(){
+        OFFER_REPOSITORY = OfferService.getOfferRepository();
+        Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency", selectedAgency), sort("nameOfOffer", SortOrder.Ascending));
+        listOfOffers.clear();
+        for (Offer offer : offers) {
+            listOfOffers.add(offer.getNameOfOffer());
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Cursor<Offer> offers = OFFER_REPOSITORY.find(eq("nameOfAgency", selectedAgency), sort("nameOfOffer", SortOrder.Ascending));
-        ArrayList<String> listOfOffers = new ArrayList<String>();
-        for (Offer offer : offers) {
-            listOfOffers.add(offer.getNameOfOffer());
-        }
+        getAllOffers();
         ObservableList<String> observableOffers = FXCollections.observableArrayList(listOfOffers);
         agencyName.setText(selectedAgency);
         int ROW_HEIGHT = 24;
@@ -98,6 +103,7 @@ public class OffersPageController implements Initializable {
                         Parent root = loader.load();
                         OfferDetailsController controller = loader.getController();
                         controller.setAnotherStage(anotherStage);
+                        Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.show();
                     } catch (IOException e) {

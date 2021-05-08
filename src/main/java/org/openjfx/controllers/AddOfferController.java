@@ -1,7 +1,5 @@
 package org.openjfx.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,27 +7,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.dizitart.no2.FindOptions;
 import org.dizitart.no2.NitriteId;
-import org.dizitart.no2.SortOrder;
-import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
-import org.openjfx.model.Booking;
-import org.openjfx.model.Offer;
 import org.openjfx.model.User;
-import org.openjfx.services.BookingService;
 import org.openjfx.services.OfferService;
 import org.openjfx.services.UserService;
 
 import java.io.IOException;
-import java.util.Objects;
-
-import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class AddOfferController {
     private static String username,id;
     private static String nameOfAgency;
-    private final ObjectRepository<User> REPOSITORY =UserService.getUserRepository();
     private static Stage stage = new Stage();
 
     @FXML
@@ -62,8 +50,6 @@ public class AddOfferController {
     @FXML
     public void handleSaveOffer(){
         try {
-            User loggedInUser=REPOSITORY.find(eq("username",username)).firstOrDefault();
-            nameOfAgency=loggedInUser.getNameOfAgency();
             String id = NitriteId.newId().toString();
             OfferService.addOffer(id,nameOfAgency,nameOfOffer.getText(),destination.getText(),hotelName.getText(),meals.getText(),nights.getText(),noOfClients.getText(),price.getText());
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("addOfferPage.fxml"));

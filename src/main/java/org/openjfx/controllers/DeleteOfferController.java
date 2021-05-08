@@ -1,7 +1,5 @@
 package org.openjfx.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
-import org.dizitart.no2.FindOptions;
 import org.dizitart.no2.SortOrder;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -25,12 +22,15 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static org.dizitart.no2.FindOptions.sort;
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
+
 
 public class DeleteOfferController implements Initializable {
-    private final ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
+    private static ObjectRepository<Offer> REPOSITORY = OfferService.getOfferRepository();
     private static String nameOfAgency;
-    private static ObservableList<Offer> offers;
-    private static Stage stage = new Stage();
+    private static ArrayList<String> listOfOffers = new ArrayList<String>();
+    private Stage stage = new Stage();
 
     @FXML
     private TextField offerName;
@@ -49,24 +49,26 @@ public class DeleteOfferController implements Initializable {
         DeleteOfferController.nameOfAgency = nameOfAgency;
     }
 
-    public void getAllOffers(){
-        ObservableList<Offer> newList = FXCollections.observableArrayList();
-        Cursor<Offer> cursor = REPOSITORY.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
-        for(Offer offer:cursor) {
-            if(Objects.equals(nameOfAgency,offer.getNameOfAgency())) {
-                newList.add(offer);
-            }
+    public static String getNameOfAgency() {
+        return nameOfAgency;
+    }
+
+    public static ArrayList<String> getListOfOffers() {
+        return listOfOffers;
+    }
+
+    public static void getAllOffers(){
+        REPOSITORY = OfferService.getOfferRepository();
+        Cursor<Offer> offers = REPOSITORY.find(eq("nameOfAgency",nameOfAgency),sort("nameOfOffer", SortOrder.Ascending));
+        listOfOffers.clear();
+        for(Offer offer : offers){
+            listOfOffers.add(offer.getNameOfOffer());
         }
-        offers = newList;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAllOffers();
-        ArrayList<String> listOfOffers = new ArrayList<String>();
-        for(Offer offer : offers){
-            listOfOffers.add(offer.getNameOfOffer());
-        }
         TextFields.bindAutoCompletion(offerName,listOfOffers);
         offerName.setOnKeyPressed(event -> {
             if(event.getCode().equals(KeyCode.ENTER)) {

@@ -88,11 +88,10 @@ public class BookingDetailsController {
             stage.close();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("rejectBookingPage.fxml"));
             Parent root = loader.load();
-            RejectBookingController controller = loader.getController();
-            controller.setSelectedBooking(selectedBooking);
-            controller.setNameOfAgency(nameOfAgency);
-            controller.setUsername(username);
-            controller.setBookings(bookings);
+            RejectBookingController.setNameOfAgency(nameOfAgency);
+            RejectBookingController.setUsername(username);
+            RejectBookingController.setSelectedBooking(selectedBooking);
+            RejectBookingController.setBookings(bookings);
             stage.setScene(new Scene(root));
             stage.show();
         }catch (IOException e){

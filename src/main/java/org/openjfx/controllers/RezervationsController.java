@@ -24,8 +24,8 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 
 public class RezervationsController {
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
-    private static Stage stage = new Stage();
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private Stage stage = new Stage();
     private static String nameOfAgency,username;
     private static ObservableList<Booking> bookings;
     private static Booking selectedBooking;
@@ -41,7 +41,8 @@ public class RezervationsController {
     @FXML
     public TableView<Booking> bookingTableView;
 
-    public void getAllBookings(){
+    public static void getAllBookings(){
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("nameOfAgency",nameOfAgency));
         bookings = FXCollections.observableArrayList();
         for(Booking b : cursor) {
@@ -107,6 +108,10 @@ public class RezervationsController {
 
     public static void setBookings(ObservableList<Booking> bookings) {
         RezervationsController.bookings = FXCollections.observableArrayList(bookings);
+    }
+
+    public static ObservableList<Booking> getBookings() {
+        return bookings;
     }
 
     public static void setNameOfAgency(String nameOfAgency) {
