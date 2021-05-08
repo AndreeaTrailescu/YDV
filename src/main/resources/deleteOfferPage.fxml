@@ -46,7 +46,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add Offer" textFill="WHITE" GridPane.rowIndex="4">
+      <Button fx:id="addButton" id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add Offer" textFill="WHITE" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>

@@ -12,7 +12,7 @@
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="addButton" layoutX="126.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" textFill="#f5f5f7">
+        <Button fx:id="addButton" id="addButton" layoutX="126.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
