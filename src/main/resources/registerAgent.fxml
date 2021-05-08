@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-radius: 60; -fx-background-insets: 10; -fx-border-insets: 20;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RegisterControllerAgent">
     <children>
-        <TextField fx:id="name" layoutX="96.0" layoutY="65.0" mouseTransparent="true" prefHeight="26.0" prefWidth="251.0" />
+        <TextField fx:id="name" id="name" layoutX="96.0" layoutY="65.0" mouseTransparent="true" prefHeight="26.0" prefWidth="251.0" />
         <Label layoutX="35.0" layoutY="68.0" prefHeight="18.0" prefWidth="82.0" text="Name" textFill="#0c1649">
             <font>
                 <Font name="DejaVu Serif Bold" size="14.0" />
@@ -22,15 +22,15 @@
                 <Font name="DejaVu Serif Bold" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="eMail" layoutX="99.0" layoutY="146.0" prefHeight="26.0" prefWidth="251.0" />
-        <TextField fx:id="phoneNumber" layoutX="168.0" layoutY="224.0" prefHeight="26.0" prefWidth="181.0" />
+        <TextField fx:id="eMail" id="eMail" layoutX="99.0" layoutY="146.0" prefHeight="26.0" prefWidth="251.0" />
+        <TextField fx:id="phoneNumber" id="phoneNumber" layoutX="168.0" layoutY="224.0" prefHeight="26.0" prefWidth="181.0" />
         <Label layoutX="37.0" layoutY="309.0" text="Name of Agency" textFill="#0c1649">
             <font>
                 <Font name="DejaVu Serif Bold" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="nameOfAgency" layoutX="175.0" layoutY="306.0" prefHeight="26.0" prefWidth="182.0" />
-        <Button fx:id="saveButton" layoutX="298.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleRegisterAgent" prefHeight="26.0" prefWidth="52.0" text="Save" textFill="#f5f5f7">
+        <TextField fx:id="nameOfAgency" id="nameOfAgency" layoutX="175.0" layoutY="306.0" prefHeight="26.0" prefWidth="182.0" />
+        <Button fx:id="saveButton" id="saveButton" layoutX="298.0" layoutY="351.0" mnemonicParsing="false" onAction="#handleRegisterAgent" prefHeight="26.0" prefWidth="52.0" text="Save" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
