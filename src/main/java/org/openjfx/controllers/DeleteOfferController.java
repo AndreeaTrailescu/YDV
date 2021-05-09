@@ -77,7 +77,7 @@ public class DeleteOfferController implements Initializable {
                         DeleteOfferDetailsController.setNameOfOffer(offerName.getText());
                         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("deleteOfferDetailsPage.fxml"));
                         Parent root = loader.load();
-                        Stage stage = (Stage) addButton.getScene().getWindow();
+                        Stage stage = (Stage) offerName.getScene().getWindow();
                         stage.setScene(new Scene(root));
                         stage.show();
                     } catch (IOException e) {

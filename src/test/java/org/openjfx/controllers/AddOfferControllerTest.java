@@ -16,6 +16,7 @@ import org.openjfx.services.UserService;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.framework.junit5.Stop;
 
 import java.io.IOException;
 
@@ -36,7 +37,7 @@ class AddOfferControllerTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown() throws IOException {
         OfferService.getDatabase().close();
         BookingService.getDatabase().close();
     }
@@ -69,7 +70,7 @@ class AddOfferControllerTest {
         robot.clickOn("#saveButtonAdd");
         assertThat(OfferService.getAllOffers().size()).isEqualTo(1);
 
-        robot.clickOn("#bookListAddButton");
+        robot.clickOn("#bookListButtonAdd");
         robot.clickOn("#closeBookingButton");
         robot.clickOn("#addButton");
         robot.clickOn("#nameOfOfferAdd");
@@ -89,7 +90,7 @@ class AddOfferControllerTest {
         robot.clickOn("#saveButtonAdd");
         assertThat(OfferService.getAllOffers().size()).isEqualTo(2);
 
-        robot.clickOn("#closeAddButton");
+        robot.clickOn("#closeButtonAdd");
         robot.clickOn("#addButton");
         robot.clickOn("#nameOfOfferAdd");
         robot.write("offer3");
@@ -107,5 +108,8 @@ class AddOfferControllerTest {
         robot.write("180");
         robot.clickOn("#saveButtonAdd");
         assertThat(OfferService.getAllOffers().size()).isEqualTo(3);
+        assertThat(OfferService.getAllOffers().get(0).getNameOfAgency()).isEqualTo("agency1");
+        assertThat(OfferService.getAllOffers().get(1).getNameOfAgency()).isEqualTo("agency1");
+        assertThat(OfferService.getAllOffers().get(2).getNameOfAgency()).isEqualTo("agency1");
     }
 }

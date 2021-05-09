@@ -61,18 +61,18 @@ class RegisterTest {
 
         robot.clickOn("#loginButton");
 
-        robot.clickOn("#name");
+        robot.clickOn("#nameAgent");
         robot.write("user1");
-        robot.clickOn("#eMail");
+        robot.clickOn("#eMailAgent");
         robot.write("user1");
-        robot.clickOn("#phoneNumber");
+        robot.clickOn("#phoneNumberAgent");
         robot.write("0000000000");
         robot.clickOn("#nameOfAgency");
         robot.write("agency1");
 
-        robot.clickOn("#saveButton");
+        robot.clickOn("#saveButtonAgent");
         assertThat(UserService.getAllUsers()).size().isEqualTo(1);
-        robot.clickOn("#logoutButton");
+        robot.clickOn("#logoutButtonAgent");
 
         robot.clickOn("#username");
         robot.write("client");
@@ -82,16 +82,16 @@ class RegisterTest {
         robot.type(KeyCode.ENTER);
         robot.clickOn("#loginButton");
 
-        robot.clickOn("#name");
+        robot.clickOn("#nameClient");
         robot.write("user2");
-        robot.clickOn("#eMail");
+        robot.clickOn("#eMailClient");
         robot.write("user2");
-        robot.clickOn("#phoneNumber");
+        robot.clickOn("#phoneNumberClient");
         robot.write("1111111111");
 
-        robot.clickOn("#saveButton");
+        robot.clickOn("#saveButtonClient");
         assertThat(UserService.getAllUsers()).size().isEqualTo(2);
-        robot.clickOn("#logoutButton");
+        robot.clickOn("#logoutButtonHome");
 
         robot.clickOn("#username");
         robot.write("agent");
@@ -101,7 +101,7 @@ class RegisterTest {
         robot.type(KeyCode.DOWN);
         robot.type(KeyCode.ENTER);
         robot.clickOn("#loginButton");
-        robot.clickOn("#logoutButton");
+        robot.clickOn("#logoutButtonAgent");
 
         robot.clickOn("#username");
         robot.write("client");
@@ -110,7 +110,7 @@ class RegisterTest {
         robot.clickOn("#role");
         robot.type(KeyCode.ENTER);
         robot.clickOn("#loginButton");
-        robot.clickOn("#logoutButton");
+        robot.clickOn("#logoutButtonHome");
 
         robot.clickOn("#username");
         robot.write("agent");
