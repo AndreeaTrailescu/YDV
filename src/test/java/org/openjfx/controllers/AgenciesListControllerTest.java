@@ -7,6 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,16 +17,24 @@ import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
 import org.openjfx.services.UserService;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class AgenciesListControllerTest {
+
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
@@ -88,5 +97,7 @@ class AgenciesListControllerTest {
         robot.clickOn("#offersButtonAgenciesList");
         assertThat(OffersPageController.getSelectedAgency()).isEqualTo("agency2");
         assertThat(robot.lookup("#noOfferExistsOffersPage").queryText()).hasText("No offer has been added yet.");
+        robot.clickOn("#agencyListButtonOffersPage");
+        robot.clickOn("#logoutButtonAgenciesList");
     }
 }
