@@ -48,7 +48,7 @@ public class HomePageController {
     }
 
     @FXML
-    public void handleAgenciesList() throws Exception{
+    public void handleAgenciesList(){
         try {
             AgenciesListController.getAllAgencies();
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
