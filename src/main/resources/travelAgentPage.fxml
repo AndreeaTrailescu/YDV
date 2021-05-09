@@ -20,7 +20,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="deleteButton" layoutX="116.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="#f5f5f7">
+        <Button fx:id="deleteButton" id="deleteButton" layoutX="116.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
@@ -28,7 +28,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="logoutButton" id="logoutButton" layoutX="115.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
+        <Button fx:id="logoutButton" id="logoutButtonAgent" layoutX="115.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

@@ -76,23 +76,23 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="logoutButton" alignment="CENTER" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+        <Button fx:id="logoutButton" id="logoutButtonAdd" alignment="CENTER" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="10">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="closeButton" id="closeAddButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+        <Button fx:id="closeButton" id="closeButtonAdd" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="editButton" id="editFromAddButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+        <Button fx:id="editButton" id="editButtonAdd" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" text="Delete Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="10">
+        <Button fx:id="deleteButton" id="deleteButtonAdd" mnemonicParsing="false" onAction="#handleDelete" text="Delete Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="10">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="bookListButton" id="bookListAddButton" mnemonicParsing="false" onAction="#handleBookingList" text="Reservation List" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+        <Button fx:id="bookListButton" id="bookListButtonAdd" mnemonicParsing="false" onAction="#handleBookingList" text="Reservation List" textFill="#f5f5f7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
