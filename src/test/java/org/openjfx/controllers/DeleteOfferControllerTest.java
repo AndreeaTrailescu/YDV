@@ -8,6 +8,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,12 +18,14 @@ import org.openjfx.services.BookingService;
 import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.base.NodeMatchers;
 
 import java.io.IOException;
 import java.lang.management.PlatformLoggingMXBean;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.api.FxAssert.verifyThat;
@@ -30,6 +33,12 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class DeleteOfferControllerTest {
+
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
@@ -109,5 +118,6 @@ class DeleteOfferControllerTest {
         robot.clickOn("#offerNameDelete");
         robot.write("offer");
         robot.type(KeyCode.DOWN);
+        robot.clickOn("#logoutButtonDelete");
     }
 }

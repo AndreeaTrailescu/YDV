@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,16 +15,24 @@ import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
 import org.openjfx.services.UserService;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.framework.junit5.Stop;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(ApplicationExtension.class)
 class AddOfferControllerTest {
+
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
@@ -111,5 +120,6 @@ class AddOfferControllerTest {
         assertThat(OfferService.getAllOffers().get(0).getNameOfAgency()).isEqualTo("agency1");
         assertThat(OfferService.getAllOffers().get(1).getNameOfAgency()).isEqualTo("agency1");
         assertThat(OfferService.getAllOffers().get(2).getNameOfAgency()).isEqualTo("agency1");
+        robot.clickOn("#logoutButtonAdd");
     }
 }

@@ -29,7 +29,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+        <Button fx:id="closeButton" id="closeDialogButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

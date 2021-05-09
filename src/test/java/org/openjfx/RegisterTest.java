@@ -21,7 +21,6 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class RegisterTest {
-
     @AfterEach
     void tearDown() {
         UserService.getDatabase().close();
@@ -122,7 +121,6 @@ class RegisterTest {
 
         robot.clickOn("#loginButton");
         assertThat(robot.lookup("#message").queryText()).hasText("Username already exists or the password entered is incorrect!");
-
     }
 
 }
