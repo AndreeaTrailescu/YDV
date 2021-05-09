@@ -112,6 +112,10 @@ class EditOfferControllerTest {
         robot.moveTo("offer2").doubleClickOn();
         robot.clickOn("#closeDialogButton");
 
+        robot.clickOn("#deleteButtonEdit");
+        robot.clickOn("#closeButtonDelete");
+        robot.clickOn("#editButtonAgent");
+
         robot.clickOn("#logoutButtonEdit");
     }
 }
