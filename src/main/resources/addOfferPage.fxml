@@ -84,7 +84,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="editButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+        <Button fx:id="editButton" id="editFromAddButton" mnemonicParsing="false" onAction="#handleEdit" text="Edit Offer" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

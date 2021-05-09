@@ -58,6 +58,7 @@ public class EditOfferController {
     private TextField searchTextField;
 
     public static void getAllOffers(){
+        REPOSITORY = OfferService.getOfferRepository();
         ObservableList<Offer> newList = FXCollections.observableArrayList();
         Cursor<Offer> cursor = REPOSITORY.find(FindOptions.sort("nameOfOffer", SortOrder.Ascending));
         for(Offer offer:cursor) {
