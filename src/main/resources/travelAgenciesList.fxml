@@ -18,7 +18,7 @@
       <RowConstraints maxHeight="191.4" minHeight="10.0" prefHeight="56.80000000000001" />
   </rowConstraints>
    <children>
-       <Button fx:id="offersButton" mnemonicParsing="false" onAction="#handleOffers" text="See offers" textFill="#f5f5f7" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+       <Button fx:id="offersButton" id="offersButtonAgenciesList" mnemonicParsing="false" onAction="#handleOffers" text="See offers" textFill="#f5f5f7" GridPane.halignment="LEFT" GridPane.rowIndex="5">
            <GridPane.margin>
                <Insets left="10.0" />
            </GridPane.margin>
@@ -26,21 +26,21 @@
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font>
        </Button>
-      <Button fx:id="bookListButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleHistory" prefHeight="26.0" prefWidth="169.0" text="Booking History List" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Button fx:id="bookListButton" id="bookListButtonAgenciesList" alignment="CENTER" mnemonicParsing="false" onAction="#handleHistory" prefHeight="26.0" prefWidth="169.0" text="Booking History List" textFill="#f5f5f7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="87.0" text="Logout" textFill="#f5f5f7" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+      <Button fx:id="logoutButton" id="logoutButtonAgenciesList" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="87.0" text="Logout" textFill="#f5f5f7" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <ListView fx:id="agenciesList" prefHeight="185.0" prefWidth="450.0" style="-fx-background-color: rgb(42,80,88); -fx-border-radius: 20;" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+      <ListView fx:id="agenciesList" id="agenciesListAgenciesList" prefHeight="185.0" prefWidth="450.0" style="-fx-background-color: rgb(42,80,88); -fx-border-radius: 20;" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin></ListView>
@@ -49,7 +49,7 @@
               <Font name="DejaVu Sans Condensed Bold" size="14.0" />
           </font>
       </Label>
-      <TextField fx:id="agencyName" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+      <TextField fx:id="agencyName" id="agencyNameAgenciesList" GridPane.rowIndex="2" GridPane.valignment="TOP" />
       <Label text="If you know the name of the agency, search it here:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
           <font>
               <Font name="DejaVu Sans Condensed Bold" size="10.0" />

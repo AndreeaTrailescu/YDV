@@ -63,6 +63,7 @@ class DeleteOfferControllerTest {
 
     @Start
     void start(Stage stage) throws IOException {
+        FileSystemService.OFFERS_FOLDER = ".test-offers-database";
         OfferService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("deleteOfferPage.fxml"));
         Scene scene = new Scene(root);

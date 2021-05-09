@@ -63,10 +63,10 @@ public class AgenciesListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            int ROW_HEIGHT = 24;
-            agenciesList.maxHeightProperty().bind(Bindings.size(agencies).multiply(ROW_HEIGHT));
-            agenciesList.setItems(agencies);
-            TextFields.bindAutoCompletion(agencyName, agencies);
+         int ROW_HEIGHT = 24;
+         agenciesList.maxHeightProperty().bind(Bindings.size(agencies).multiply(ROW_HEIGHT));
+         agenciesList.setItems(agencies);
+         TextFields.bindAutoCompletion(agencyName, agencies);
     }
 
     @FXML
