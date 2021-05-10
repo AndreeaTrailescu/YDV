@@ -41,11 +41,11 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="acceptButton" layoutX="246.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAccept" text="Accept" textFill="#f5f5f7">
+        <Button fx:id="acceptButton" id="acceptButton" layoutX="246.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAccept" text="Accept" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="closeButton" layoutX="414.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7">
+        <Button fx:id="closeButton" id="closeBookDetailsButton" layoutX="414.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

@@ -22,15 +22,14 @@ import org.testfx.framework.junit5.Start;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ApplicationExtension.class)
 class RezervationsControllerTest {
 
-    /*@AfterAll
+    @AfterAll
     static void afterAll() throws TimeoutException {
         FxToolkit.cleanupStages();
-    }*/
+    }
 
     @BeforeEach
     void setUp() throws Exception {
@@ -73,9 +72,10 @@ class RezervationsControllerTest {
         robot.clickOn("#bookListButtonAgent");
 
         robot.clickOn("#tableOfBookings");
-        robot.type(KeyCode.DOWN);
-        robot.moveTo("offer1").doubleClickOn();
+        robot.type(KeyCode.UP);
+        robot.type(KeyCode.ENTER);
+        robot.moveTo("offer1").doubleClickOn("offer1");
 
-
+        robot.clickOn("#acceptButton");
     }
 }
