@@ -91,6 +91,17 @@ class RezervationsControllerTest {
         robot.clickOn("#acceptButton");
         robot.clickOn("#closeAcceptButton");
         robot.clickOn("#closeBookDetailsButton");
+
+        robot.doubleClickOn("offer2");
+        robot.clickOn("#rejectButtonBookingDetails");
+        robot.clickOn("#closeButtonRejectBooking");
+        robot.clickOn("#closeBookDetailsButton");
+
+        robot.doubleClickOn("offer2");
+        robot.clickOn("#rejectButtonBookingDetails");
+        robot.clickOn("#rejectionReasonRejectBooking");
+        robot.write("There are not enough vacancies left.");
+        robot.clickOn("#saveButtonRejectBooking");
         robot.clickOn("#logoutButtonBooking");
     }
 }

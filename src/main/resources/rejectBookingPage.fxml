@@ -15,7 +15,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+        <Button fx:id="closeButton" id="closeButtonRejectBooking" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets left="20.0" />
             </GridPane.margin>
@@ -23,7 +23,7 @@
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font>
         </Button>
-        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="Save" textFill="#f5f5f5" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+        <Button fx:id="saveButton" id="saveButtonRejectBooking" mnemonicParsing="false" onAction="#handleSave" text="Save" textFill="#f5f5f5" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets right="20.0" />
             </GridPane.margin>
@@ -36,7 +36,7 @@
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="rejectionReason" GridPane.rowIndex="1" />
+        <TextField fx:id="rejectionReason" id="rejectionReasonRejectBooking" GridPane.rowIndex="1" />
     </children>
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
