@@ -21,6 +21,7 @@ import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
+import java.awt.print.Book;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -70,13 +71,14 @@ class AgenciesListControllerTest {
         UserService.addUser2("agent2","user2","Travel Agent","user2","user2","1111111111","agency2");
         UserService.addUser2("agent3","user3","Travel Agent","user3","user3","2222222222","agency1");
         AgenciesListController.getAllAgencies();
+        OffersPageController.setClientUsername("client");
+        HistoryBookingController.setUsername("client");
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("travelAgenciesList.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         UserService.getDatabase().close();
     }
-
 
     @Test
     void viewListWithAgenciesTest(FxRobot robot){
@@ -95,6 +97,14 @@ class AgenciesListControllerTest {
         assertThat(OffersPageController.getSelectedAgency()).isEqualTo("agency1");
         robot.moveTo("offer1").doubleClickOn();
         robot.clickOn("#closeButtonOfferDetails");
+        robot.moveTo("offer1").doubleClickOn();
+        robot.clickOn("#numberOfPersonsOfferDetails");
+        robot.write("2");
+        robot.type(KeyCode.ENTER);
+        robot.moveTo(930,450).clickOn();
+        robot.moveTo(800,620).clickOn().sleep(1000);
+        robot.clickOn("#makeBookingButtonOfferDetails");
+        assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
         robot.clickOn("#agencyListButtonOffersPage");
 
         robot.clickOn("#agenciesListAgenciesList");
@@ -134,5 +144,60 @@ class AgenciesListControllerTest {
         robot.release(KeyCode.ENTER);
         robot.clickOn("#offersButtonAgenciesList");
         robot.clickOn("#logoutButtonOffersPage");
+
+        robot.clickOn("#username");
+        robot.write("client");
+        robot.clickOn("#password");
+        robot.write("password2");
+        robot.clickOn("#role");
+        robot.type(KeyCode.ENTER);
+        robot.clickOn("#loginButton");
+        robot.clickOn("#agencyListButtonHome");
+        robot.clickOn("#agencyNameAgenciesList");
+        robot.write("agency");
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#offersButtonAgenciesList");
+        robot.moveTo("offer2").doubleClickOn();
+        robot.clickOn("#bookListButtonOfferDetails");
+        robot.clickOn("#travelAgenciesButtonHistoryBooking");
+
+        robot.clickOn("#agencyNameAgenciesList");
+        robot.write("agency");
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#offersButtonAgenciesList");
+        robot.moveTo("offer2").doubleClickOn();
+        robot.clickOn("#agencyListButtonOfferDetails");
+
+        robot.clickOn("#agencyNameAgenciesList");
+        robot.write("agency");
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#offersButtonAgenciesList");
+        robot.moveTo("offer1").doubleClickOn();
+        robot.clickOn("#numberOfPersonsOfferDetails");
+        robot.type(KeyCode.RIGHT);
+        robot.type(KeyCode.BACK_SPACE);
+        robot.write("4");
+        robot.type(KeyCode.ENTER);
+        robot.moveTo(930,450).clickOn();
+        robot.moveTo(800,640).clickOn().sleep(1000);
+        robot.clickOn("#makeBookingButtonOfferDetails");
+        assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
+        robot.moveTo("offer1").doubleClickOn();
+        robot.clickOn("#logoutButtonOfferDetails");
     }
 }
