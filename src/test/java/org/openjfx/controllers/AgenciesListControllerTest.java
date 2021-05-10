@@ -29,14 +29,10 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @ExtendWith(ApplicationExtension.class)
 class AgenciesListControllerTest {
-
-    @AfterAll
-    static void afterAll() throws TimeoutException {
-        FxToolkit.cleanupStages();
-    }
-
     @BeforeEach
     void setUp() throws Exception {
+        FileSystemService.APPLICATION_FOLDER = ".test-registration-database";
+        UserService.initDatabase();
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
         FileSystemService.initOffersDirectory();
         FileUtils.cleanDirectory(FileSystemService.getOffersHomeFolder().toFile());
@@ -58,12 +54,18 @@ class AgenciesListControllerTest {
         BookingService.getDatabase().close();
     }
 
+    @AfterAll
+    static void afterAll() throws TimeoutException {
+        FxToolkit.cleanupStages();
+    }
+
     @Start
     void start(Stage stage) throws IOException {
         FileSystemService.APPLICATION_FOLDER = ".test-registration-database";
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
+        UserService.addUser1("client","password2","Client","user2","user2","1111111111");
         UserService.addUser2("agent1","user1","Travel Agent","user1","user1","0000000000","agency1");
         UserService.addUser2("agent2","user2","Travel Agent","user2","user2","1111111111","agency2");
         UserService.addUser2("agent3","user3","Travel Agent","user3","user3","2222222222","agency1");
@@ -74,6 +76,7 @@ class AgenciesListControllerTest {
         stage.show();
         UserService.getDatabase().close();
     }
+
 
     @Test
     void viewListWithAgenciesTest(FxRobot robot){
@@ -90,6 +93,8 @@ class AgenciesListControllerTest {
         robot.release(KeyCode.ENTER);
         robot.clickOn("#offersButtonAgenciesList");
         assertThat(OffersPageController.getSelectedAgency()).isEqualTo("agency1");
+        robot.moveTo("offer1").doubleClickOn();
+        robot.clickOn("#closeButtonOfferDetails");
         robot.clickOn("#agencyListButtonOffersPage");
 
         robot.clickOn("#agenciesListAgenciesList");
@@ -98,6 +103,36 @@ class AgenciesListControllerTest {
         assertThat(OffersPageController.getSelectedAgency()).isEqualTo("agency2");
         assertThat(robot.lookup("#noOfferExistsOffersPage").queryText()).hasText("No offer has been added yet.");
         robot.clickOn("#agencyListButtonOffersPage");
+        robot.clickOn("#agencyNameAgenciesList");
+        robot.write("agency");
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#offersButtonAgenciesList");
+        robot.clickOn("#bookListButtonOffersPage");
+        robot.clickOn("#travelAgenciesButtonHistoryBooking");
         robot.clickOn("#logoutButtonAgenciesList");
+
+        robot.clickOn("#username");
+        robot.write("client");
+        robot.clickOn("#password");
+        robot.write("password2");
+        robot.clickOn("#role");
+        robot.type(KeyCode.ENTER);
+        robot.clickOn("#loginButton");
+        robot.clickOn("#agencyListButtonHome");
+        robot.clickOn("#agencyNameAgenciesList");
+        robot.write("agency");
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.type(KeyCode.ENTER);
+        robot.release(KeyCode.ENTER);
+        robot.clickOn("#offersButtonAgenciesList");
+        robot.clickOn("#logoutButtonOffersPage");
     }
 }

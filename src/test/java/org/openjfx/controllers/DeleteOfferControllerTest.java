@@ -119,6 +119,8 @@ class DeleteOfferControllerTest {
         robot.clickOn("#offerNameDelete");
         robot.write("offer");
         robot.type(KeyCode.DOWN);
+        robot.release(KeyCode.DOWN);
+        robot.clickOn("#logoutButtonDelete");
         robot.clickOn("#logoutButtonDelete");
     }
 }

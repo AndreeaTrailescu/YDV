@@ -14,7 +14,7 @@
                 <Font name="DejaVu Sans Condensed Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="agencyListButton" layoutX="68.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleAgenciesList" text="Travel Agencies List" textAlignment="CENTER" textFill="#f5f5f7">
+        <Button fx:id="agencyListButton" id="agencyListButtonHome" layoutX="68.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleAgenciesList" text="Travel Agencies List" textAlignment="CENTER" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

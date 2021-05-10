@@ -124,10 +124,6 @@ public class AddOfferController {
         AddOfferController.username = username;
     }
 
-    public static void setId(String id) {
-        AddOfferController.id = id;
-    }
-
     public static void setNameOfAgency(String nameOfAgency) {
         AddOfferController.nameOfAgency = nameOfAgency;
     }

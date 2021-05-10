@@ -23,21 +23,21 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Button fx:id="bookListButton" id="bookListButtonOffersPage" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Button fx:id="logoutButton" id="logoutButtonOffersPage" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <ListView fx:id="offersList" editable="true" prefHeight="296.0" prefWidth="390.0" style="-fx-background-color: rgb(42,80,88); -fx-background-insets: 20; -fx-background-radius: 30;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <ListView fx:id="offersList" id="offersListOffersPage" editable="true" prefHeight="296.0" prefWidth="390.0" style="-fx-background-color: rgb(42,80,88); -fx-background-insets: 20; -fx-background-radius: 30;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin></ListView>

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.dizitart.no2.SortOrder;
@@ -31,7 +32,7 @@ public class OffersPageController implements Initializable {
     private static String selectedOffer;
     private static String clientUsername;
     private static ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
-    private ArrayList<String> listOfOffers = new ArrayList<String>();
+    private static ArrayList<String> listOfOffers = new ArrayList<String>();
     private Stage anotherStage;
 
     @FXML
@@ -67,7 +68,7 @@ public class OffersPageController implements Initializable {
         OffersPageController.clientUsername = clientUsername;
     }
 
-    public ArrayList<String> getListOfOffers() {
+    public static ArrayList<String> getListOfOffers() {
         return listOfOffers;
     }
 
