@@ -30,6 +30,7 @@ public class HomePageController {
     private static String username;
     private Stage anotherStage;
     private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private int ok;
 
     @FXML
     private Button logoutButton;
@@ -42,7 +43,7 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
-        int ok = findBookings();
+        findBookings();
         Platform.runLater(()->{
             if(ok == 1) messageText.setText("Rating became available!");
         });
@@ -94,9 +95,9 @@ public class HomePageController {
         }
     }
 
-    public int findBookings() {
-        int ok = 0;
+    public void findBookings() {
         try {
+            this.ok = 0;
             BOOKING_REPOSITORY = BookingService.getBookingRepository();
             Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername", username));
             for (Booking b : cursor) {
@@ -107,8 +108,8 @@ public class HomePageController {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                     d1 = formatter.parse(date1);
                     d2 = formatter.parse(b.getCheckOutDate());
-                    if(d2.compareTo(d1) > 0) {
-                        ok = 1;
+                    if(d2.compareTo(d1) >= 0) {
+                        this.ok = 1;
                     }
                 }
 
@@ -117,7 +118,6 @@ public class HomePageController {
         } catch (ParseException parseException) {
             parseException.printStackTrace();
         }
-        return ok;
 
     }
 

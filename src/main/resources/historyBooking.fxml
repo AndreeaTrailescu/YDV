@@ -18,11 +18,11 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="logoutButton" layoutX="407.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE">
+      <Button fx:id="logoutButton" id="logoutHistoryButton" layoutX="407.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="closeButton" layoutX="282.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE">
+      <Button fx:id="closeButton" id="closeHistoryButton" layoutX="282.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

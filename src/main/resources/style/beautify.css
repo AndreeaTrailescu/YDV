@@ -49,6 +49,12 @@
     -fx-font-weight: bold;
 }
 
+#messageTextOfferDetails {
+    -fx-font-family: "DejaVu Serif";
+    -fx-fill: FIREBRICK;
+    -fx-font-weight: bold;
+}
+
 #message {
     -fx-font-family: "DejaVu Serif";
     -fx-fill: FIREBRICK;

@@ -102,7 +102,7 @@ class AgenciesListControllerTest {
         robot.write("2");
         robot.type(KeyCode.ENTER);
         robot.moveTo(930,450).clickOn();
-        robot.moveTo(800,620).clickOn().sleep(1000);
+        robot.moveTo(900,620).clickOn().sleep(1000);
         robot.clickOn("#makeBookingButtonOfferDetails");
         assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
         robot.clickOn("#agencyListButtonOffersPage");
@@ -194,7 +194,7 @@ class AgenciesListControllerTest {
         robot.write("4");
         robot.type(KeyCode.ENTER);
         robot.moveTo(930,450).clickOn();
-        robot.moveTo(800,640).clickOn().sleep(1000);
+        robot.moveTo(900,640).clickOn().sleep(1000);
         robot.clickOn("#makeBookingButtonOfferDetails");
         assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
         robot.moveTo("offer1").doubleClickOn();
