@@ -53,10 +53,10 @@ public class RezervationsController {
     @FXML
     private void initialize(){
         getAllBookings();
+        offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("clientUsername"));
+        bookingTableView.setItems(bookings);
         Platform.runLater(()-> {
-            offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
-            usernameColumn.setCellValueFactory(new PropertyValueFactory<>("clientUsername"));
-            bookingTableView.setItems(bookings);
 
             bookingTableView.setRowFactory(e -> {
                 TableRow<Booking> row = new TableRow<>();

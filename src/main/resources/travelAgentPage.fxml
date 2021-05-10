@@ -24,7 +24,7 @@
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="bookListButton" layoutX="80.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleBookingList" text="Rezervation List" textFill="#f5f5f7">
+        <Button fx:id="bookListButton" id="bookListButtonAgent" layoutX="80.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleBookingList" text="Rezervation List" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
