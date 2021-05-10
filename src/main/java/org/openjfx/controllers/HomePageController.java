@@ -29,7 +29,7 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 public class HomePageController {
     private static String username;
     private Stage anotherStage;
-    private final ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
+    private static ObjectRepository<Booking> BOOKING_REPOSITORY = BookingService.getBookingRepository();
 
     @FXML
     private Button logoutButton;
@@ -42,8 +42,9 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
+        int ok = findBookings();
         Platform.runLater(()->{
-            if(findBookings() == 1) messageText.setText("Rating became available!");
+            if(ok == 1) messageText.setText("Rating became available!");
         });
     }
 
@@ -96,6 +97,7 @@ public class HomePageController {
     public int findBookings() {
         int ok = 0;
         try {
+            BOOKING_REPOSITORY = BookingService.getBookingRepository();
             Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername", username));
             for (Booking b : cursor) {
                 if (b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected")) {
