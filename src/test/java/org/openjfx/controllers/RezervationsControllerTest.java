@@ -20,6 +20,8 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 
@@ -38,6 +40,7 @@ class RezervationsControllerTest {
         FileUtils.cleanDirectory(FileSystemService.getOffersHomeFolder().toFile());
         OfferService.initDatabase();
         OfferService.addOffer("20","agency1","offer1","destination","hotel","2","5","100","150");
+        OfferService.addOffer("13","agency1","offer2","destination","hotel","2","5","100","150");
 
         FileSystemService.BOOKINGS_FOLDER = ".test-bookings-database";
         FileSystemService.initBookingDirectory();
@@ -77,5 +80,18 @@ class RezervationsControllerTest {
         robot.moveTo("offer1").doubleClickOn("offer1");
 
         robot.clickOn("#acceptButton");
+        robot.moveTo(900,310).clickOn();
+        robot.moveTo(750,500).clickOn();
+        robot.clickOn("#saveAcceptButton");
+
+        RezervationsController.setNameOfAgency("agency1");
+        robot.clickOn("#tableOfBookings");
+        robot.type(KeyCode.DOWN);
+        robot.moveTo(640,260).doubleClickOn().doubleClickOn();
+
+        robot.clickOn("#acceptButton");
+        robot.clickOn("#closeAcceptButton");
+        robot.clickOn("#closeBookDetailsButton");
+        robot.clickOn("#logoutButtonBooking");
     }
 }
