@@ -20,8 +20,6 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.concurrent.TimeoutException;
 
 
@@ -61,12 +59,14 @@ class RezervationsControllerTest {
 
     @Start
     void start(Stage stage) throws IOException {
+        OfferService.initDatabase();
         BookingService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("travelAgentPage.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         BookingService.getDatabase().close();
+        OfferService.getDatabase().close();
     }
 
     @Test
@@ -85,7 +85,6 @@ class RezervationsControllerTest {
         robot.clickOn("#saveAcceptButton");
 
         RezervationsController.setNameOfAgency("agency1");
-        robot.clickOn("#tableOfBookings");
         robot.type(KeyCode.DOWN);
         robot.moveTo(640,260).doubleClickOn().doubleClickOn();
 
