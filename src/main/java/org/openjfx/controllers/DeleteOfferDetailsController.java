@@ -73,12 +73,14 @@ public class DeleteOfferDetailsController implements Initializable {
 
     @FXML
     public void handleDelete(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete the offer " +nameOfOffer+"?", ButtonType.YES, ButtonType.NO);
+        ButtonType yesButton = new ButtonType("YES");
+        ButtonType noButton = new ButtonType("NO");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete the offer " +nameOfOffer+"?", yesButton, noButton);
         alert.setTitle(null);
         alert.setHeaderText(null);
         alert.setGraphic(null);
         alert.showAndWait();
-        if (alert.getResult() == ButtonType.NO){
+        if (alert.getResult() == noButton){
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("deleteOfferPage.fxml"));
                 Parent root = loader.load();
@@ -89,7 +91,7 @@ public class DeleteOfferDetailsController implements Initializable {
                 System.out.println("Error");
             }
         }
-        if (alert.getResult() == ButtonType.YES){
+        if (alert.getResult() == yesButton){
             OFFER_REPOSITORY.remove(and(eq("nameOfAgency", nameOfAgency),eq("nameOfOffer",nameOfOffer)));
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("deleteOfferPage.fxml"));

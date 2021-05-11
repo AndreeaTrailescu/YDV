@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="350.0" prefWidth="400.0" style="-fx-background-radius: 60; -fx-background-insets: 10; -fx-border-insets: 20;" stylesheets="@style/beautify.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.controllers.RegisterControllerClient">
     <children>
-        <TextField fx:id="name" layoutX="96.0" layoutY="65.0" mouseTransparent="true" prefHeight="26.0" prefWidth="251.0" />
+        <TextField fx:id="name" id="nameClient" layoutX="96.0" layoutY="65.0" mouseTransparent="true" prefHeight="26.0" prefWidth="251.0" />
         <Label layoutX="35.0" layoutY="68.0" prefHeight="18.0" prefWidth="82.0" text="Name" textFill="#0c1649">
             <font>
                 <Font name="DejaVu Serif Bold" size="14.0" />
@@ -22,9 +22,9 @@
                 <Font name="DejaVu Serif Bold" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="eMail" layoutX="99.0" layoutY="146.0" prefHeight="26.0" prefWidth="251.0" />
-        <TextField fx:id="phoneNumber" layoutX="168.0" layoutY="224.0" prefHeight="26.0" prefWidth="181.0" />
-        <Button fx:id="saveButton" layoutX="287.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleRegisterClient" prefHeight="26.0" prefWidth="52.0" text="Save" textAlignment="CENTER" textFill="#f5f5f7">
+        <TextField fx:id="eMail" id="eMailClient" layoutX="99.0" layoutY="146.0" prefHeight="26.0" prefWidth="251.0" />
+        <TextField fx:id="phoneNumber" id="phoneNumberClient" layoutX="168.0" layoutY="224.0" prefHeight="26.0" prefWidth="181.0" />
+        <Button fx:id="saveButton" id="saveButtonClient" layoutX="287.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleRegisterClient" prefHeight="26.0" prefWidth="52.0" text="Save" textAlignment="CENTER" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

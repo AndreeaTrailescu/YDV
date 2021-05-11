@@ -53,6 +53,7 @@ public class AcceptController {
 
     @FXML
     public void handleSave() throws IOException {
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
         date = deadlineDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         selectedBooking.setMessage("Accepted deadline: " + date);
         String nameOfOffer = selectedBooking.getNameOfOffer();
@@ -91,6 +92,7 @@ public class AcceptController {
     }
 
     public static void updateNumberOfClients(String nameOfOffer) {
+        OFFER_REPOSITORY = OfferService.getOfferRepository();
         Offer offer = OFFER_REPOSITORY.find(and(eq("nameOfOffer",nameOfOffer),eq("nameOfAgency",nameOfAgency))).firstOrDefault();
         offer.setNoOfClients(String.valueOf(Integer.parseInt(offer.getNoOfClients()) - Integer.parseInt(selectedBooking.getNumberOfPersons())));
         OFFER_REPOSITORY.update(offer);

@@ -20,7 +20,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.rowIndex="7">
+      <Button fx:id="closeButton" id="closeButtonDeleteDetails" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="WHITE" GridPane.rowIndex="7">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
@@ -28,7 +28,7 @@
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+      <Button fx:id="deleteButton" id="deleteButtonDeleteDetails" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

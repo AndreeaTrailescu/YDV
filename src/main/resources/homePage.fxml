@@ -14,15 +14,15 @@
                 <Font name="DejaVu Sans Condensed Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="agencyListButton" layoutX="68.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleAgenciesList" text="Travel Agencies List" textAlignment="CENTER" textFill="#f5f5f7">
+        <Button fx:id="agencyListButton" id="agencyListButtonHome" layoutX="68.0" layoutY="105.0" mnemonicParsing="false" onAction="#handleAgenciesList" text="Travel Agencies List" textAlignment="CENTER" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="bookListButton" layoutX="66.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="#f5f5f7">
+        <Button fx:id="bookListButton" id="bookListButtonHome" layoutX="66.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="logoutButton" layoutX="115.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
+        <Button fx:id="logoutButton" id="logoutButtonHome" layoutX="115.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

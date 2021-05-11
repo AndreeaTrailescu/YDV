@@ -23,7 +23,7 @@ public class BookingDetailsController {
     private Booking selectedBooking;
     private String nameOfAgency,username;
     private ObservableList<Booking> bookings;
-    private final ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
+    private static ObjectRepository<Offer> OFFER_REPOSITORY = OfferService.getOfferRepository();
 
     @FXML
     private Label clientUsername;
@@ -100,6 +100,7 @@ public class BookingDetailsController {
     }
 
     public void showOfferDetails(Booking booking) {
+        OFFER_REPOSITORY = OfferService.getOfferRepository();
         Offer offer = OFFER_REPOSITORY.find(and(eq("nameOfOffer",booking.getNameOfOffer()),eq("nameOfAgency",booking.getNameOfAgency()))).firstOrDefault();
         clientUsername.setText(booking.getClientUsername());
         nameOfOffer.setText(booking.getNameOfOffer());

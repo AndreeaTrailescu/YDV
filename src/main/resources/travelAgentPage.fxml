@@ -12,23 +12,23 @@
                 <Font name="DejaVu Sans Mono Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="addButton" layoutX="126.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" textFill="#f5f5f7">
+        <Button fx:id="addButton" id="addButton" layoutX="126.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleAdd" text="Add" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="editButton" layoutX="125.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" textFill="#f5f5f7">
+        <Button fx:id="editButton" id="editButtonAgent" layoutX="125.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="deleteButton" layoutX="116.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="#f5f5f7">
+        <Button fx:id="deleteButton" id="deleteButton" layoutX="116.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="bookListButton" layoutX="80.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleBookingList" text="Rezervation List" textFill="#f5f5f7">
+        <Button fx:id="bookListButton" id="bookListButtonAgent" layoutX="80.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleBookingList" text="Rezervation List" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="logoutButton" layoutX="115.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
+        <Button fx:id="logoutButton" id="logoutButtonAgent" layoutX="115.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="#f5f5f7">
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>

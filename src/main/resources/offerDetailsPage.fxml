@@ -111,35 +111,35 @@
             <Insets left="20.0" />
          </GridPane.margin>
        </Label>
-       <Button fx:id="makeBookingButton" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+       <Button fx:id="makeBookingButton" id="makeBookingButtonOfferDetails" mnemonicParsing="false" onAction="#handleMakeBooking" text="Make Booking" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-       <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="#fdfafa" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+       <Button fx:id="agencyListButton" id="agencyListButtonOfferDetails" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="#fdfafa" GridPane.halignment="LEFT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-       <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+       <Button fx:id="logoutButton" id="logoutButtonOfferDetails" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-       <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#faf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="13">
+       <Button fx:id="closeButton" id="closeButtonOfferDetails" mnemonicParsing="false" onAction="#handleClose" text="Close" textFill="#faf6f6" GridPane.halignment="LEFT" GridPane.rowIndex="13">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-       <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="#f8f4f4" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+       <Button fx:id="bookListButton" id="bookListButtonOfferDetails" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="#f8f4f4" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin>
@@ -202,19 +202,19 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <DatePicker fx:id="checkInDate" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+      <DatePicker fx:id="checkInDate" id="checkInDateOfferDetails" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></DatePicker>
-      <DatePicker fx:id="checkOutDate" disable="true" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+      <DatePicker fx:id="checkOutDate" id="checkOutDateOfferDetails" disable="true" style="-fx-background-insets: 30;" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></DatePicker>
-      <TextField fx:id="numberOfPersons" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="174.0" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+      <TextField fx:id="numberOfPersons" id="numberOfPersonsOfferDetails" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="174.0" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></TextField>
-      <Label fx:id="totalPriceLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+      <Label fx:id="totalPriceLabel" id="totalPriceLabelOfferDetails" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="173.0" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
           <font>
               <Font name="DejaVu Serif Bold" size="14.0" />
           </font>
@@ -222,7 +222,7 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </Label>
-      <Text fx:id="messageText" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+      <Text fx:id="messageText" id="messageTextOfferDetails" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="11">
           <font>
               <Font size="13.0" />
           </font></Text>

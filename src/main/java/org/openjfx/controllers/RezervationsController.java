@@ -57,7 +57,6 @@ public class RezervationsController {
             offerNameColumn.setCellValueFactory(new PropertyValueFactory<>("nameOfOffer"));
             usernameColumn.setCellValueFactory(new PropertyValueFactory<>("clientUsername"));
             bookingTableView.setItems(bookings);
-
             bookingTableView.setRowFactory(e -> {
                 TableRow<Booking> row = new TableRow<>();
                 row.setOnMouseClicked(event -> {

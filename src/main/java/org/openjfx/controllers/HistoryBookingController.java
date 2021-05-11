@@ -140,6 +140,7 @@ public class HistoryBookingController {
     }
 
     public static void getAllBookings(){
+        BOOKING_REPOSITORY = BookingService.getBookingRepository();
         Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername",username));
         ArrayList<Booking> list = new ArrayList<>();
         for(Booking b : cursor) {

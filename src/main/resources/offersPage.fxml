@@ -16,28 +16,28 @@
     <RowConstraints maxHeight="127.40000000000003" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="agencyListButton" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="#fafafa" GridPane.rowIndex="3">
+      <Button fx:id="agencyListButton" id="agencyListButtonOffersPage" mnemonicParsing="false" onAction="#handleAgencyList" text="Travel Agencies List" textFill="#fafafa" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="bookListButton" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Button fx:id="bookListButton" id="bookListButtonOffersPage" mnemonicParsing="false" onAction="#handleHistory" text="Booking History List" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Button fx:id="logoutButton" id="logoutButtonOffersPage" mnemonicParsing="false" onAction="#handleLogout" text="Logout" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
          <font>
             <Font name="DejaVu Serif Bold" size="13.0" />
          </font></Button>
-      <ListView fx:id="offersList" editable="true" prefHeight="296.0" prefWidth="390.0" style="-fx-background-color: rgb(42,80,88); -fx-background-insets: 20; -fx-background-radius: 30;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <ListView fx:id="offersList" id="offersListOffersPage" editable="true" prefHeight="296.0" prefWidth="390.0" style="-fx-background-color: rgb(42,80,88); -fx-background-insets: 20; -fx-background-radius: 30;" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin></ListView>
@@ -45,7 +45,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Text>
-      <Text fx:id="noOfferExists" textAlignment="CENTER" wrappingWidth="200.13667678833008" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Text fx:id="noOfferExists" id="noOfferExistsOffersPage" textAlignment="CENTER" wrappingWidth="200.13667678833008" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font size="13.0" />
          </font></Text>
