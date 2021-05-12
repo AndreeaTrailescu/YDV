@@ -63,7 +63,6 @@ class HistoryBookingControllerTest {
 
     @Start
     void start(Stage stage) throws IOException {
-        //UserService.initDatabase();
         OfferService.initDatabase();
         BookingService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homePage.fxml"));
@@ -72,15 +71,13 @@ class HistoryBookingControllerTest {
         stage.show();
         BookingService.getDatabase().close();
         OfferService.getDatabase().close();
-        //UserService.getDatabase().close();
     }
 
     @Test
     void historyBookingAndRatingTest(FxRobot robot){
         HomePageController.setUsername("user1");
         robot.clickOn("#bookListButtonHome");
-        robot.moveTo(700,250).doubleClickOn();
-        robot.moveTo(700, 300).doubleClickOn();
+        robot.doubleClickOn("offer2");
 
         robot.clickOn("#rating");
         robot.write("6");

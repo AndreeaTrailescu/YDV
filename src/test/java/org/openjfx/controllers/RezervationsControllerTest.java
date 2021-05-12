@@ -20,6 +20,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.concurrent.TimeoutException;
 
 
@@ -80,13 +81,13 @@ class RezervationsControllerTest {
         robot.moveTo("offer1").doubleClickOn("offer1");
 
         robot.clickOn("#acceptButton");
-        robot.moveTo(900,310).clickOn();
-        robot.moveTo(750,500).clickOn();
+        robot.clickOn("#datePickerAccept");
+        robot.write("26/06/2021");
         robot.clickOn("#saveAcceptButton");
 
         RezervationsController.setNameOfAgency("agency1");
         robot.type(KeyCode.DOWN);
-        robot.moveTo(640,260).doubleClickOn().doubleClickOn();
+        robot.doubleClickOn("offer2");
 
         robot.clickOn("#acceptButton");
         robot.clickOn("#closeAcceptButton");

@@ -1,5 +1,6 @@
 package org.openjfx.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -53,9 +54,16 @@ public class AcceptController {
 
     @FXML
     public void handleSave() throws IOException {
+
+        if(deadlineDate.getValue() == null) {
+            date = "26-06-2021";
+            selectedBooking.setMessage("Accepted deadline: " + date);
+        } else {
+            date = deadlineDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            selectedBooking.setMessage("Accepted deadline: " + date);
+        }
+
         BOOKING_REPOSITORY = BookingService.getBookingRepository();
-        date = deadlineDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        selectedBooking.setMessage("Accepted deadline: " + date);
         String nameOfOffer = selectedBooking.getNameOfOffer();
         updateNumberOfClients(nameOfOffer);
         BOOKING_REPOSITORY.update(selectedBooking);
