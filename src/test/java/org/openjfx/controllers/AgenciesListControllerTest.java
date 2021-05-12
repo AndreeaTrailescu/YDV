@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openjfx.model.Offer;
 import org.openjfx.services.BookingService;
 import org.openjfx.services.FileSystemService;
 import org.openjfx.services.OfferService;
@@ -25,6 +26,8 @@ import java.awt.print.Book;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
+import static org.dizitart.no2.objects.filters.ObjectFilters.and;
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.assertions.api.Assertions.assertThat;
 
@@ -101,8 +104,8 @@ class AgenciesListControllerTest {
         robot.clickOn("#numberOfPersonsOfferDetails");
         robot.write("2");
         robot.type(KeyCode.ENTER);
-        robot.moveTo(930,450).clickOn();
-        robot.moveTo(900,620).clickOn().sleep(1000);
+        robot.clickOn("#checkInDateOfferDetails");
+        robot.write("15.06.2021");
         robot.clickOn("#makeBookingButtonOfferDetails");
         assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
         robot.clickOn("#agencyListButtonOffersPage");
@@ -193,8 +196,6 @@ class AgenciesListControllerTest {
         robot.type(KeyCode.BACK_SPACE);
         robot.write("4");
         robot.type(KeyCode.ENTER);
-        robot.moveTo(930,450).clickOn();
-        robot.moveTo(900,640).clickOn().sleep(1000);
         robot.clickOn("#makeBookingButtonOfferDetails");
         assertThat(BookingService.getAllBookings().size()).isEqualTo(1);
         robot.moveTo("offer1").doubleClickOn();

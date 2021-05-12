@@ -156,9 +156,18 @@ public class OfferDetailsController implements Initializable {
                 BOOKING_REPOSITORY.remove(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer),eq("clientUsername",clientUsername)));
             }
             String id = NitriteId.newId().toString();
-            BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
-                    checkInDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),checkOutDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),
-                    "Your booking hasn't been approved/rejected yet.","0");
+            if(checkInDate.getValue()!=null){
+                BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
+                        checkInDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),checkOutDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")),
+                        "Your booking hasn't been approved/rejected yet.","0");
+            }
+            else{
+                offerSelected = OFFER_REPOSITORY.find(and(eq("nameOfAgency", selectedAgency),eq("nameOfOffer",selectedOffer))).firstOrDefault();
+                int days = 15 + Integer.parseInt(offerSelected.getNights());
+                String outDate = days + "-06-2021";
+                BookingService.addBooking(id,clientUsername,selectedAgency,selectedOffer,numberOfPersons.getText(),totalPriceLabel.getText(),
+                        "15-06-2021",outDate,"Your booking hasn't been approved/rejected yet.","0");
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("offersPage.fxml"));
             Parent root = loader.load();
             OffersPageController controller = loader.getController();
@@ -225,5 +234,6 @@ public class OfferDetailsController implements Initializable {
     public static String getSelectedOffer() {
         return selectedOffer;
     }
+
 }
 
