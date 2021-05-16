@@ -43,9 +43,10 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
-        findBookings();
+
         Platform.runLater(()->{
-            if(ok == 1) messageText.setText("Rating became available!");
+            findBookings();
+
         });
     }
 
@@ -88,6 +89,7 @@ public class HomePageController {
             anotherStage = (Stage) (bookListButton.getScene().getWindow());
             HistoryBookingController controller = loader.getController();
             controller.setStage(anotherStage);
+            controller.setUsername(username);
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -101,19 +103,21 @@ public class HomePageController {
             BOOKING_REPOSITORY = BookingService.getBookingRepository();
             Cursor<Booking> cursor = BOOKING_REPOSITORY.find(eq("clientUsername", username));
             for (Booking b : cursor) {
-                if (b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected")) {
+                if (!b.getMessage().equals("Your booking hasn't been approved/rejected yet.") && (b.getMessage().contains("Accepted") || b.getMessage().contains("Rejected."))) {
                     Date d1,d2;
                     LocalDate now = LocalDate.now();
                     String date1 = now.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                     d1 = formatter.parse(date1);
                     d2 = formatter.parse(b.getCheckOutDate());
-                    if(d2.compareTo(d1) >= 0) {
+                    if(d2.compareTo(d1) <= 0) {
                         this.ok = 1;
                     }
                 }
 
             }
+            if(ok == 1) messageText.setText("Rating became available!");
+            else messageText.setText("");
 
         } catch (ParseException parseException) {
             parseException.printStackTrace();
