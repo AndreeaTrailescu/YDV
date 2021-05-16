@@ -43,11 +43,12 @@ public class RatingController {
 
     @FXML
     public void handleSave() throws IOException {
+        selectedBooking = HistoryBookingController.getSelectedBooking();
         selectedBooking.setRating(rating.getText());
-
-        BOOKING_REPOSITORY.update(selectedBooking);
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
+
+        BOOKING_REPOSITORY.update(selectedBooking);
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("historyBooking.fxml"));
         Parent root = loader.load();
         HistoryBookingController controller = loader.getController();

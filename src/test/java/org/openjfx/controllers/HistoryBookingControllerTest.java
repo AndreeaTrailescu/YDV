@@ -3,6 +3,7 @@ package org.openjfx.controllers;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
@@ -36,6 +37,7 @@ class HistoryBookingControllerTest {
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
+        UserService.addUser1("user1","user1","Client","user1","user1","user1");
 
         FileSystemService.OFFERS_FOLDER = ".test-offers-database";
         FileSystemService.initOffersDirectory();
@@ -49,7 +51,7 @@ class HistoryBookingControllerTest {
         BookingService.addBooking("1","user1","agency1","offer1","3","600","10-05-2021", "10-05-2021","Accepted:deadline is 10-05-2021","0");
         BookingService.addBooking("2","user2","agency1","offer1","1","300","10-05-2021", "11-05-2021","Rejected:no more places available","0");
         BookingService.addBooking("3","user1","agency2","offer3","2","1000","10-05-2021", "10-05-2021","Rejected:no more places available","0");
-        BookingService.addBooking("4","user1","agency1","offer2","1","800","10-05-2021", "11-05-2021","Your booking hasn't been approved/rejected yet.","0");
+        BookingService.addBooking("4","user1","agency1","offer2","1","800","10-05-2021", "20-06-2021","Your booking hasn't been approved/rejected yet.","0");
         HomePageController.setUsername("user1");
         HistoryBookingController.setUsername("user1");
     }
@@ -63,21 +65,32 @@ class HistoryBookingControllerTest {
 
     @Start
     void start(Stage stage) throws IOException {
+        UserService.initDatabase();
         OfferService.initDatabase();
         BookingService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("homePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         BookingService.getDatabase().close();
         OfferService.getDatabase().close();
+        UserService.getDatabase().close();
     }
 
     @Test
     void historyBookingAndRatingTest(FxRobot robot){
         HomePageController.setUsername("user1");
+
+        robot.clickOn("#username");
+        robot.write("user1");
+        robot.clickOn("#password");
+        robot.write("user1");
+        robot.clickOn("#role");
+        robot.type(KeyCode.ENTER);
+        robot.clickOn("#loginButton");
         robot.clickOn("#bookListButtonHome");
         robot.doubleClickOn("offer2");
+        robot.doubleClickOn("offer1");
 
         robot.clickOn("#rating");
         robot.write("6");

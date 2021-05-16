@@ -20,7 +20,7 @@ import java.io.IOException;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class LoginController {
-    private final ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
+    private static ObjectRepository<User> REPOSITORY = UserService.getUserRepository();
 
     @FXML
     private TextField usernameField;
@@ -41,6 +41,7 @@ public class LoginController {
     @FXML
     public void handleRegisterAction() {
         try {
+            REPOSITORY = UserService.getUserRepository();
             Stage stage = new Stage();
 
             boolean test = UserService.checkUserDoesAlreadyExist(usernameField.getText(), passwordField.getText());
